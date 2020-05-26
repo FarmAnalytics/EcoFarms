@@ -13,8 +13,4 @@ Rails.application.routes.draw do
   resources :users, only: [ :show ] do
     resources :lists
   end
-
-  # resources :plugs, only: [ :index, :new, :create, :show, :update, :edit, :destroy ] do 
-    # resources :bookings, only: [ :new, :create, :update ] 
-  # end
 end

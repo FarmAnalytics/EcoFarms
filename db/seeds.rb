@@ -2,76 +2,45 @@
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 
 # Examples:
-
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
 require 'csv'
 
 puts 'Cleaning database...'
 Farm.destroy_all
+User.destroy_all
 
 puts 'Parsing the seed...'
 # csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
 # filepath    = 'seeds.csv'
-farms = load_farms('db/seeds.csv')
-farms.save
-
-puts "Finished!"
-
-private
-
-def load_farms(file_path)
-  farms = []
-  categories = ["Score global"]
-  criterions = ["global"]
-  scoring = []
-  CSV.foreach(file_path) do |row|
-    farms << { name: row[0], address: row[1], sector: row[3], private: true?(row[4]), description: row[5], url: row[10], cultures: row[13], surface: row[14].to_i, employees: row[15].to_i }
-    # scoring << { criterions_id: categories[0],  score: row[19] }
-  end
-  # category = Category.new(
-  # )
-  return farms
-end
 
 def true?(obj)
   obj.to_s.downcase == "true"
 end
 
+def random_password(length=10)
+  chars  = ('0'..'9').to_a + ('A'..'Z').to_a + ('a'..'z').to_a
+  chars.sort_by { rand }.join[0...length]
+end
 
+CSV.foreach('db/seeds.csv') do |row|
+  user = User.new(
+    email: row[11], 
+    password: random_password(length=10))
+  user.save
+  
+  farm = Farm.new(
+    name: row[0],
+    address: row[1],
+    sector: row[3],
+    private: true?(row[4]),
+    description: row[5],
+    url: row[10],
+    cultures: row[13],
+    surface: row[14].to_i,
+    employees: row[15].to_i )
+  farm.user = user
+  farm.save
+end
 
-
-#   user = User.new(
-#     password: "alpha0101",
-#     first_name: 'Elon',
-#     last_name: 'Musk',
-#     phone_number: '0150504545',
-#     email: 'elonm94@mail.com')  
-#   user.save
-#   puts "User #{user.email} created"
-
-# 20.times do
-
-#   plug = Plug.new(
-#       address: a.sample,
-#       power: [16, 30, 40, 70].sample,
-#       ac_dc: ["AC", "DC"].sample,
-#       type_plug: ['Type 2', 'Type 3C', 'Type 1', 'CHAdeMO', 'Combo CCS', 'P17' ].sample,
-#       price: rand(8..20)
-#   )
- 
-#     plug.user = user
-#     plug.save!
-#     puts "Plug \"#{plug.type_plug} - #{plug.power}\"created"
-
-# end
-
-# puts'Creating bookings...'
-# 20.times do 
-#   booking = Booking.new 
-#   booking.user = User.all.sample 
-#   plug = Plug.all.sample
-#   booking.plug = plug
-#   puts "Booking for #{booking.user} created"
-# end
+puts "Finished!"

@@ -26,13 +26,19 @@ end
 
 def load_farms(file_path)
   farms = []
-  categories = []
-  criterions = []
+  categories = ["Score global"]
+  criterions = ["global"]
+  scoring = []
   CSV.foreach(file_path) do |row|
     farms << { name: row[0], address: row[1], sector: row[3], private: true?(row[4]), description: row[5], url: row[10], cultures: row[13], surface: row[14].to_i, employees: row[15].to_i }
-    
+    scoring << { criterions_id: categories[0],  score: row[19] }
   end
-  farms
+  
+  category = Category.new(
+    
+  )
+  category.save
+
 end
 
 

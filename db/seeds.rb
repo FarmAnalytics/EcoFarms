@@ -10,9 +10,7 @@ puts 'Cleaning database...'
 Farm.destroy_all
 User.destroy_all
 
-puts 'Parsing the seed...'
-# csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
-# filepath    = 'seeds.csv'
+puts 'Parsing the csv...'
 
 def true?(obj)
   obj.to_s.downcase == "true"
@@ -23,12 +21,17 @@ def random_password(length=10)
   chars.sort_by { rand }.join[0...length]
 end
 
+# csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
+# filepath    = 'seeds.csv'
 CSV.foreach('db/seeds.csv') do |row|
+
   user = User.new(
     email: row[11], 
     password: random_password(length=10))
-  user.save
-  
+  user.save!
+
+  puts "User created"
+
   farm = Farm.new(
     name: row[0],
     address: row[1],
@@ -40,7 +43,10 @@ CSV.foreach('db/seeds.csv') do |row|
     surface: row[14].to_i,
     employees: row[15].to_i )
   farm.user = user
-  farm.save
+  farm.save!
+
+  puts "Farm created"
+  
 end
 
 puts "Finished!"

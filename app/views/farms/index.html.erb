@@ -1,11 +1,14 @@
-<div class="container">
-  <h1>Our Farms</h1>
+<div class="bg-success p-5">
+  <div class="container">
+    <h1 class='text-white'>Les fermes proches de vous</h1>
+  </div>
 </div>
 
-<div>
-  <p>THE MAP</p>
-</div>
+<div id="map"
+     style="width: 100%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
 <div class="container">
-  <p>Results</p>
+  <p>Résultats</p>
 </div>

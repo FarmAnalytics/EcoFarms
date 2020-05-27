@@ -1,7 +1,7 @@
 class FarmsController < ApplicationController
 
   def index
-    @farms = policy_scope(Farm)
+    @farms = policy_scope(Farm).geocoded
     @markers = @farms.map do |farm|
       {
         lat: farm.latitude,

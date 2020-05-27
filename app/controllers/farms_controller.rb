@@ -6,7 +6,7 @@ class FarmsController < ApplicationController
       {
         lat: farm.latitude,
         lng: farm.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { flat: flat })
+        infoWindow: render_to_string(partial: "info_window", locals: { farm: farm })
       }
     end
   end

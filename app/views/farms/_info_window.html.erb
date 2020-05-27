@@ -1,7 +1,11 @@
 <div class="farm-card">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-    <div class="farm-infos">
-      <h2><%= farm.name %></h2>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <h1 class='p-3'><%= farm.name %></h1>
+  <img src="https://images.unsplash.com/photo-1560493676-04071c5f467b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1268&q=80" />
+  <div class="farm-infos">
     <p><%= farm.description %>.</p>
   </div>
+  <%= link_to "Voir cette ferme", farm_path(farm), class: "btn btn-flat" %>
 </div>

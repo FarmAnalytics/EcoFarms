@@ -131,124 +131,121 @@ CSV.foreach('db/seeds.csv') do |row|
   aut_scoring.criterion = Criterion.find_by(name: 'Autonomie')
   aut_scoring.save!
   
-  # cp_scoring = Scoring.new(
-  #   score: row[32].to_i,
-  #   details: row[33] )
-  # cp_scoring.farm = farm
-  # cp_scoring.criterion = Criterion.where(name: 'Capacite productive')
-  # cp_scoring.save!
+  cp_scoring = Scoring.new(
+    score: row[32].to_i,
+    details: row[33] )
+  cp_scoring.farm = farm
+  cp_scoring.criterion = Criterion.find_by(name: 'Capacite productive')
+  cp_scoring.save!
 
-  # rob_scoring = Scoring.new(
-  #   score: row[34].to_i,
-  #   details: row[35] )
-  # rob_scoring.farm = farm
-  # rob_scoring.criterion = Criterion.where(name: 'Robustesse')
-  # rob_scoring.save!
+  rob_scoring = Scoring.new(
+    score: row[34].to_i,
+    details: row[35] )
+  rob_scoring.farm = farm
+  rob_scoring.criterion = Criterion.find_by(name: 'Robustesse')
+  rob_scoring.save!
 
-  # anc_scoring = Scoring.new(
-  #   score: row[36].to_i,
-  #   details: row[37] )
-  # anc_scoring.farm = farm
-  # anc_scoring.criterion = Criterion.where(name: 'Ancrage territorial')
-  # anc_scoring.save!
+  anc_scoring = Scoring.new(
+    score: row[36].to_i,
+    details: row[37] )
+  anc_scoring.farm = farm
+  anc_scoring.criterion = Criterion.find_by(name: 'Ancrage territorial')
+  anc_scoring.save!
 
-  # rs_scoring = Scoring.new(
-  #   score: row[38].to_i,
-  #   details: row[39] )
-  # rs_scoring.farm = farm
-  # rs_scoring.criterion = Criterion.where(name: 'Responsabilite sociale')
-  # rs_scoring.save!
+  rs_scoring = Scoring.new(
+    score: row[38].to_i,
+    details: row[39] )
+  rs_scoring.farm = farm
+  rs_scoring.criterion = Criterion.find_by(name: 'Responsabilite sociale')
+  rs_scoring.save!
 
-  # ali_scoring = Scoring.new(
-  #   score: row[40].to_i,
-  #   details: row[41] )
-  # ali_scoring.farm = farm
-  # ali_scoring.criterion = Criterion.where(name: 'Alimentation')
-  # ali_scoring.save!
+  ali_scoring = Scoring.new(
+    score: row[40].to_i,
+    details: row[41] )
+  ali_scoring.farm = farm
+  ali_scoring.criterion = Criterion.find_by(name: 'Alimentation')
+  ali_scoring.save!
 
-  # col_scoring = Scoring.new(
-  #   score: row[81].to_i,
-  #   details: row[82] )
-  # col_scoring.farm = farm
-  # col_scoring.criterion = Criterion.where(name: 'Collaboration')
-  # col_scoring.save!
+  col_scoring = Scoring.new(
+    score: row[80].to_i,
+    details: row[81] )
+  col_scoring.farm = farm
+  col_scoring.criterion = Criterion.find_by(name: 'Collaboration')
+  col_scoring.save!
 
-  # aut_scoring = Scoring.new(
+  # ----------------------------------------------------------------
+
+  # dec_scoring = Scoring.new(
   #   score: row[30].to_i,
   #   details: row[31] )
-  # aut_scoring.farm = farm
-  # aut_scoring.criterion = Criterion.where(name: 'Déchets')
-  # aut_scoring.save!
+  # dec_scoring.farm = farm
+  # dec_scoring.criterion = Criterion.find_by(name: 'Déchets')
+  # dec_scoring.save!
 
-  # aut_scoring = Scoring.new(
+  # dev_scoring = Scoring.new(
   #   score: row[30].to_i,
   #   details: row[31] )
-  # aut_scoring.farm = farm
-  # aut_scoring.criterion = Criterion.where(name: 'Développement local')
-  # aut_scoring.save!
+  # dev_scoring.farm = farm
+  # dev_scoring.criterion = Criterion.find_by(name: 'Développement local')
+  # dev_scoring.save!
 
-  # aut_scoring = Scoring.new(
+  # edu_scoring = Scoring.new(
   #   score: row[30].to_i,
   #   details: row[31] )
-  # aut_scoring.farm = farm
-  # aut_scoring.criterion = Criterion.where(name: 'Education')
-  # aut_scoring.save!
+  # edu_scoring.farm = farm
+  # edu_scoring.criterion = Criterion.find_by(name: 'Education')
+  # edu_scoring.save!
 
-  # aut_scoring = Scoring.new(
+  # eth_scoring = Scoring.new(
   #   score: row[30].to_i,
   #   details: row[31] )
-  # aut_scoring.farm = farm
-  # aut_scoring.criterion = Criterion.where(name: 'Ethique et développement humain')
-  # aut_scoring.save!
+  # eth_scoring.farm = farm
+  # eth_scoring.criterion = Criterion.find_by(name: 'Ethique et développement humain')
+  # eth_scoring.save!
 
-  # aut_scoring = Scoring.new(
+  # hs_scoring = Scoring.new(
   #   score: row[30].to_i,
   #   details: row[31] )
-  # aut_scoring.farm = farm
-  # aut_scoring.criterion = Criterion.where(name: 'Hygiène et sécurité')
-  # aut_scoring.save!
+  # hs_scoring.farm = farm
+  # hs_scoring.criterion = Criterion.find_by(name: 'Hygiène et sécurité')
+  # hs_scoring.save!
 
-  # aut_scoring = Scoring.new(
+  # trs_scoring = Scoring.new(
   #   score: row[30].to_i,
   #   details: row[31] )
-  # aut_scoring.farm = farm
-  # aut_scoring.criterion = Criterion.where(name: 'Transparence')
-  # aut_scoring.save!
+  # trs_scoring.farm = farm
+  # trs_scoring.criterion = Criterion.find_by(name: 'Transparence')
+  # trs_scoring.save!
 
-  # aut_scoring = Scoring.new(
-  #   score: row[30].to_i,
-  #   details: row[31] )
-  # aut_scoring.farm = farm
-  # aut_scoring.criterion = Criterion.where(name: 'Autonomie')
-  # aut_scoring.save!
+    # ----------------------------------------------------------------
 
-  # aut_scoring = Scoring.new(
-  #   score: row[30].to_i,
-  #   details: row[31] )
-  # aut_scoring.farm = farm
-  # aut_scoring.criterion = Criterion.where(name: 'Autonomie')
-  # aut_scoring.save!
+  biod_scoring = Scoring.new(
+    score: row[114].to_i,
+    details: row[115] )
+  biod_scoring.farm = farm
+  biod_scoring.criterion = Criterion.find_by(name: 'Biodiversité')
+  biod_scoring.save!
 
-  # aut_scoring = Scoring.new(
-  #   score: row[30].to_i,
-  #   details: row[31] )
-  # aut_scoring.farm = farm
-  # aut_scoring.criterion = Criterion.where(name: 'Autonomie')
-  # aut_scoring.save!
+  sol_scoring = Scoring.new(
+    score: row[142].to_i,
+    details: row[143] )
+  sol_scoring.farm = farm
+  sol_scoring.criterion = Criterion.find_by(name: 'Sol')
+  sol_scoring.save!
 
-  # aut_scoring = Scoring.new(
-  #   score: row[30].to_i,
-  #   details: row[31] )
-  # aut_scoring.farm = farm
-  # aut_scoring.criterion = Criterion.where(name: 'Autonomie')
-  # aut_scoring.save!
+  pere_scoring = Scoring.new(
+    score: row[170].to_i,
+    details: row[171] )
+  pere_scoring.farm = farm
+  pere_scoring.criterion = Criterion.find_by(name: 'Pérennité')
+  pere_scoring.save!
 
-  # aut_scoring = Scoring.new(
-  #   score: row[30].to_i,
-  #   details: row[31] )
-  # aut_scoring.farm = farm
-  # aut_scoring.criterion = Criterion.where(name: 'Autonomie')
-  # aut_scoring.save!
+  inde_scoring = Scoring.new(
+    score: row[198].to_i,
+    details: row[199] )
+  inde_scoring.farm = farm
+  inde_scoring.criterion = Criterion.find_by(name: 'Indépendance économique')
+  inde_scoring.save!
 end
 
 puts "Users and Farms have been created"

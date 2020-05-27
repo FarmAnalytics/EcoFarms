@@ -46,7 +46,27 @@ CSV.foreach('db/seeds.csv') do |row|
   farm.save!
 
   puts "Farm created"
-  
+
+  category = Category.new(
+    name: row[],
+    method: row[],
+    score: row[],
+    perspective: row[],
+    interet: row[] )
+  category.save!
+
+  criterion = Criterion.new(
+    name: row[],
+    details: row[] )
+  criterion.category = category
+  criterion.save!
+
+  scoring = Scoring.new(
+    score: row[],
+    details: row[] )
+  scoring.farm = farm
+  scoring.criterion = criterion
+  scoring.save!
 end
 
 puts "Finished!"

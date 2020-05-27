@@ -1,0 +1,15 @@
+.mapboxgl-canvas-container {
+  position: relative;
+}
+
+.mapboxgl-popup {
+  height: 100%;
+  position: absolute;
+  left: 0px;
+
+}
+
+.mapboxgl-popup-content {
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+}

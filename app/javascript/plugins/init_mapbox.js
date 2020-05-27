@@ -9,9 +9,17 @@ const initMapbox = () => {
       container: 'map',
       center: [2.3522219, 48.856614],
       zoom: 10,
-      style: 'mapbox://styles/mapbox/streets-v10'
+      style: 'mapbox://styles/mapbox/streets-v11',
     });
+    map.scrollZoom.disable();
+    map.addControl(new mapboxgl.NavigationControl());
   }
+  const markers = JSON.parse(mapElement.dataset.markers);
+  markers.forEach((marker) => {
+    new mapboxgl.Marker()
+      .setLngLat([ marker.lng, marker.lat ])
+      .addTo(map);
+  });
 };
 
 export { initMapbox };

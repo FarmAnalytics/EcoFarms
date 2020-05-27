@@ -5,7 +5,8 @@ class FarmsController < ApplicationController
     @markers = @farms.map do |farm|
       {
         lat: farm.latitude,
-        lng: farm.longitude
+        lng: farm.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { flat: flat })
       }
     end
   end

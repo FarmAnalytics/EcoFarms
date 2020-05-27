@@ -10,13 +10,14 @@
 
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
     <link rel="stylesheet" href="node_modules/select2/dist/css/select2.css">
+
   </head>
 
   <body>
     <%= render 'shared/navbar' %>
     <%= yield %>
     <%= render 'shared/flashes' %>
-
+    
   <footer class="pt-4 my-md-5 pt-md-5 border-top">
     <div class="row">
       <div class="col-12 col-md">
@@ -55,8 +56,4 @@
     </div>
   </footer>
   </body>
-
-
-
-
-</html>
+  </html>

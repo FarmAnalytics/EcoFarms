@@ -1,0 +1,27 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Mon Compte</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <div class="btn-group mr-2">
+        <%= link_to "Modifier", edit_user_path, class: "btn btn-sm btn-outline-secondary" %>
+        </div>
+    </div>
+</div>
+<%= simple_form_for(@user) do |f| %>
+    <%= f.input :first_name, input_html: { value: f.object.first_name }, disabled: true %>
+    <%= f.input :last_name, input_html: { value: f.object.last_name }, disabled: true %>
+    <%= f.input :email, input_html: { value: f.object.email }, disabled: true %>
+    <%= f.input :phone_number, input_html: { value: f.object.phone_number }, disabled: true %>
+<% end %>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Mes établissements</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <div class="btn-group mr-2">
+        <%= link_to "Modifier", edit_user_path, class: "btn btn-sm btn-outline-secondary" %>
+        </div>
+    </div>
+</div>
+<% @shops.each do |shop| %>
+    <%= simple_form_for(shop) do |f| %>
+        <%= f.input :address, input_html: { value: f.object.address }, disabled: true %>
+    <% end %>
+<% end %>

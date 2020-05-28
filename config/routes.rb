@@ -14,7 +14,10 @@ Rails.application.routes.draw do
   
   resources :likes, only: [ :create ]
   
-  resources :users, only: [ :show ] do
+  resources :users, only: [ :show, :edit ] do
     resources :lists
   end
+
+  resources :shops, only: [ :show, :edit ]
+
 end

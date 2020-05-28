@@ -1,0 +1,27 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Mon Compte</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <div class="btn-group mr-2">
+        <%= link_to "Sauvegarder", user_path, class: "btn btn-sm btn-outline-secondary" %>
+        </div>
+    </div>
+</div>
+<%= simple_form_for(@user) do |f| %>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :email %>
+    <%= f.input :phone_number %>
+<% end %>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Mes établissements</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <div class="btn-group mr-2">
+        <%= link_to "Sauvegarder", user_path, class: "btn btn-sm btn-outline-secondary" %>
+        </div>
+    </div>
+</div>
+<% @shops.each do |shop| %>
+    <%= simple_form_for(shop) do |f| %>
+        <%= f.input :address %>
+    <% end %>
+<% end %>

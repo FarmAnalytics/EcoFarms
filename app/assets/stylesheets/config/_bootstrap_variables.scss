@@ -11,15 +11,15 @@ $font-size-base: 1rem;
 
 // Colors
 $body-color: $gray;
-$primary:    $blue;
-$success:    $green;
-$info:       $yellow;
-$danger:     $red;
-$warning:    $orange;
+$primary:    #13313f;
+$success:    #f6a030;
+$info:       #ffd162;
+$danger:     #be7100;
+$warning:    #3e5a6a;
 
 // Buttons & inputs' radius
-$border-radius:    2px;
-$border-radius-lg: 2px;
+$border-radius:    5px;
+$border-radius-lg: 8px;
 $border-radius-sm: 2px;
 
 // Override other variables below!

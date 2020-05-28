@@ -3,12 +3,9 @@
     Add to List
   </a>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-  <% if List.where(shop_id: Shop.where(user_id: User.find(21))).empty? %>
-    <a class="dropdown-item" href="#">Pas de listes</a>
-  <% else %>
-    <% List.where(shop_id: Shop.where(user_id: User.find(21))).each do |list| %>
-      <a class="dropdown-item" href="#"><%= list.name %></a>
-    <% end %>
+  <% List.where(shop_id: Shop.where(user_id: User.find(params[:id]))).each do |list| %>
+    <a class="dropdown-item" href="#"><%= list.name %></a>
   <% end %>
+    <a class="dropdown-item" href="#">Créer une nouvelle liste</a>
   </div>
 </div>

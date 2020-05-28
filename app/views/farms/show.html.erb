@@ -1,6 +1,6 @@
 <div class="container p-5">
   
-  <div class="row no-gutters border rounded flex-md-row p-4 m-1 mb-4 shadow-sm">
+  <div class="row no-gutters border rounded flex-md-row p-4 mb-4 shadow-sm">
     <div class="col-md-6 px-0 p-1 d-flex flex-column border-right">
       <h3 class="display-4"><%= @farm.name %></h3>
       <p class="lead my-3"><%= @farm.sector %></p>
@@ -10,7 +10,7 @@
     </div>
   </div>
 
-  <div class="row no-gutters border rounded flex-md-row mb-4 shadow-sm h-md-250 m-1 position-relative">
+  <div class="row no-gutters border rounded flex-md-row mb-4 shadow-sm h-md-250 position-relative">
     <div class="col p-4 d-flex flex-column position-static">
       <h3 class="mb-0">Description</h3>
       <p class="card-text mb-auto"><%= @farm.description %></p>
@@ -29,7 +29,7 @@
       <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">
         <div class="pt-3 px-3 text-center">
           <div class="h1 m-0">
-            17
+            <%# <%= Scoring.where(criterion_id: Criterion.where(category_id: Category.find_by(name: 'Global')), farm_id: params[:id]) %>
           </div>
           <div class="text-muted">Globale</div>
         </div>

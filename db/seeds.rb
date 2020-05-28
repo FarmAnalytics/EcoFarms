@@ -109,6 +109,9 @@ CSV.foreach('db/seeds.csv') do |row|
   user = User.new(
     email: row[11], 
     password: random_password(length=10))
+  user.first_name = ['Martin', 'Sylvie', 'Boris', 'Fred', 'Nina'].sample
+  user.last_name = ['Mauriac', 'Dupont', 'Le Floc', 'Basin', 'Vazyvaza'].sample
+  user.phone_number = '06 22 55 40 68'
   user.save!
 
   farm = Farm.new(
@@ -249,5 +252,31 @@ CSV.foreach('db/seeds.csv') do |row|
 end
 
 puts "Users and Farms have been created"
+
+puts "Insert Lists and Shops"
+
+User.all.each do |user| 
+  magazin = Shop.new
+  magazin.address = "#{user.id} rue du General de Gaulle, 44300 Nantes"
+  magazin.user = user
+  magazin.save!
+  3.times do
+    maListe = List.new
+    maListe.name = "Mes meilleurs fermiers #{(1..50).to_a.sample}"
+    maListe.shop = magazin
+    maListe.save!
+  end
+end
+
+puts "Insert Likes"
+
+List.all.each do |liste| 
+  (1..10).to_a.sample.times do
+    coeur = Like.new
+    coeur.list = liste
+    coeur.farm = Farm.all.sample
+    coeur.save!
+  end
+end
 
 puts "\nFinished!"

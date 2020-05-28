@@ -10,13 +10,22 @@
     </div>
   </div>
 
-  <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 m-1 position-relative">
+  <div class="row no-gutters border rounded flex-md-row mb-4 shadow-sm h-md-250 m-1 position-relative">
     <div class="col p-4 d-flex flex-column position-static">
       <h3 class="mb-0">Featured post</h3>
       <p class="card-text mb-auto"><%= @farm.description %></p>
-      <div class="container">
+      <div class="container d-flex">
         <a href="#" class="btn btn-outline-primary">Clap</a>
-        <a href="#" class="btn btn-outline-primary">Add to List</a>
+        <div class="dropdown ">
+          <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Add to List
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </div>
       </div>
     </div>
     <div class="col-auto d-none d-lg-block">

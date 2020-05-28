@@ -25,6 +25,11 @@ const addMarkersToMap = (map, markers) => {
     const el = mark._element
     el.addEventListener('click', (event) => { 
       mapElement.insertAdjacentHTML('beforeend', marker.infoWindow)
+      const close = document.querySelector('.close');
+      const card = document.querySelector('.farm-card')
+      close.addEventListener('click', (event) => {
+        card.remove();
+      })
     });
   }); 
 };

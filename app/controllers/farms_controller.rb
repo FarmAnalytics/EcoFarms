@@ -7,7 +7,7 @@ class FarmsController < ApplicationController
         lat: farm.latitude,
         lng: farm.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { farm: farm }),
-        # image_url: helpers.asset_url('app/assets/images/farmer.png')
+        image_url: helpers.asset_url('farmer.png')
       }
     end
   end

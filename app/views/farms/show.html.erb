@@ -29,7 +29,11 @@
       <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">
         <div class="pt-3 px-3 text-center">
           <div class="h1 m-0">
-            <% Scoring.where(criterion_id: Criterion.where(category_id: Category.find_by(name: 'Global')), farm_id: params[:id]) do |critere| %>
+            24
+            <% Scoring.where(criterion_id: Criterion.where(category_id: Category.find_by(name: 'Global')), farm_id: params[:id]) do |critere|%>
+              <% note = 0%>
+              <% note << critere.score %>
+              <%= note %>
             <% end %>
           </div>
           <div class="text-muted">Globale</div>
@@ -67,20 +71,20 @@
       </a>
     </li>
   </ul>
-  <div class="tab-content border border-top-0 rounded shadow-sm" id="myTabContent">
+  <div class="tab-content border border-top-0 rounded-bottom shadow-sm" id="myTabContent">
     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
       <div class="p-4">
         <%= render 'global_rating' %>
       </div>
     </div>
     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-      <div class="p-3">
+      <div class="p-4">
         ...
         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Why do we use it? It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
       </div>
     </div>
     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-      <div class="p-3">
+      <div class="p-4">
         ...
       </div>
     </div>

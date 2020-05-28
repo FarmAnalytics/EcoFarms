@@ -13,6 +13,7 @@ User.destroy_all
 Category.destroy_all
 Criterion.destroy_all
 Scoring.destroy_all
+Clap.destroy_all
 
 
 puts "\nCreating categories ..."
@@ -55,6 +56,7 @@ puts "The \"#{global.name}\" category has been created"
 
 puts 'categories have been created'
 
+
 puts "\nParsing the csv..."
 
 CSV.foreach('db/eco_criterions.csv') do |row|
@@ -91,6 +93,7 @@ end
 
 puts 'Criteria have been created'
 
+
 puts "\nParsing the csv..."
 
 def true?(obj)
@@ -126,7 +129,7 @@ CSV.foreach('db/seeds.csv') do |row|
     employees: row[15].to_i )
   farm.user = user
   farm.save!
-  
+
   aut_scoring = Scoring.new(
     score: row[30].to_i,
     details: row[31] )
@@ -278,5 +281,17 @@ List.all.each do |liste|
     coeur.save!
   end
 end
+
+puts "\nCreating claps ..."
+
+20.times do 
+  clap = Clap.new
+  clap.farm = Farm.all.sample
+  clap.user = User.all.sample
+  clap.save!
+end
+  
+puts "#{Clap.count} claps created"
+
 
 puts "\nFinished!"

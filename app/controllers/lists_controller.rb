@@ -1,9 +1,9 @@
 class ListsController < ApplicationController
 
   def index
+    skip_authorization
     @user = current_user
-    @lists = List.where(user: current_user.id)
-    authorize @user
+    @lists = policy_scope(List).where(user: current_user.id)
   end
 
 

@@ -10,4 +10,12 @@ class Farm < ApplicationRecord
     end
     return note.sum / note.count
   end
+
+  # def total
+  #   tot = []
+  #   Scoring.where(criterion_id: Criterion.where(category_id: Category.find_by(farm_id: self.id)).each do |critere|
+  #     note << critere.score
+  #   end
+  #   return tot.sum / tot.count
+  # end
 end

@@ -20,4 +20,6 @@ Rails.application.routes.draw do
 
   resources :shops, only: [ :show, :edit ]
 
+  resources :lists, only: [ :new, :create]
+
 end

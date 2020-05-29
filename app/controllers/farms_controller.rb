@@ -14,7 +14,12 @@ class FarmsController < ApplicationController
 
   def show
     @farm = Farm.find(params[:id])
+    @user = current_user
+    @shop = Shop.where(user_id: @user.id).first
     authorize @farm
+
+    @wish_lists = List.where(shop_id: Shop.where(user_id: User.find(params[:id])))
+    @list = List.new
   end
     
 end

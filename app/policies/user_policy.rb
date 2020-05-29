@@ -5,7 +5,7 @@ class UserPolicy < ApplicationPolicy
     end
   end
   
-  def show?
+  def profile?
     true
   end
 

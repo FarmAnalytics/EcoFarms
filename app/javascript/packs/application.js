@@ -26,6 +26,7 @@ require("channels")
 import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
 import { initSelect2 } from '../plugins/init_select2';
+import { init_profile_form } from '../components/modify_profile';
 
 
 // Internal imports, e.g:
@@ -37,4 +38,5 @@ document.addEventListener('turbolinks:load', () => {
   initSelect2();
   initMapbox();
   feather.replace();
+  init_profile_form();
   });

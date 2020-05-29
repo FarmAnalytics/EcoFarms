@@ -1,0 +1,16 @@
+<div class="p-4">
+  <% Criterion.where(category_id: Category.where(name: zone)).each do |critere| %>
+    <div class="mb-1 row">
+      <div class="col-3">
+        <%= critere.name %>
+      </div>
+      <div class="col-9">
+        <div class="progress">
+          <div class="progress-bar bg-success" role="progressbar" aria-valuenow="<%= Scoring.find_by(farm_id: params[:id], criterion_id: critere.id).score %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= Scoring.find_by(farm_id: params[:id], criterion_id: critere.id).score %>%">
+            <%= Scoring.find_by(farm_id: params[:id], criterion_id: critere.id).score %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

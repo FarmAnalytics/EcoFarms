@@ -2,26 +2,20 @@
   <div class="sidebar-sticky pt-3 border-right">
     <ul class="nav flex-column">
       <li class="nav-item">
-        <a class="nav-link" href="#">
-        <%= link_to user_path, class: "nav-link" do %>
+        <%= link_to profile_user_path, class: "nav-link" do %>
             <span data-feather="user"></span><%= " Mon Profil" %>
             <span class="sr-only">(current)</span>
         <% end %>
-        <a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">
-        <%= link_to root_path, class: "nav-link" do %>
+        <%= link_to user_lists_path, class: "nav-link" do %>
             <span data-feather="list"></span><%= " Mes Listes" %>
         <% end %>
-        <a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">
         <%= link_to root_path, class: "nav-link" do %>
             <span data-feather="message-circle"></span><%= " Mes Messages" %>
         <% end %>
-        <a>
     </ul>
   </div>
 </nav>

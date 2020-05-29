@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'users/show'
+  # get 'users/show'
   devise_for :users
-  root to: 'pages#home'
+  root to: 'farms#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   
   get '/farms_layout', to: 'pages#farms_layout'
@@ -14,10 +14,18 @@ Rails.application.routes.draw do
   
   resources :likes, only: [ :create ]
   
-  resources :users, only: [ :show, :edit ] do
-    resources :lists
-  end
+  # resources :users, only: [ :show, :edit ] do
+  #   resources :lists
+  # end
+
+  resource :user, only: [:update] do 
+      get :profile
+      get :messages
+      resources :lists, only: [:index, :show]
+  end 
 
   resources :shops, only: [ :show, :edit ]
+
+  resources :lists, only: [ :new, :create]
 
 end

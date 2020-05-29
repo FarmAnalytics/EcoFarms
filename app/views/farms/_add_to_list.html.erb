@@ -5,7 +5,7 @@
   </a>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
   <% @wish_lists.each do |list| %>
-    <a class="dropdown-item" href="#"><%= list.name %></a>
+    <%= link_to list.name, user_lists_path, class: "dropdown-item" %>
   <% end %>
     <!-- Button trigger modal -->
     <a href="#" type="button" class="btn btn-primary dropdown-item" data-toggle="modal" data-target="#exampleModal">Créer une nouvelle liste</a>

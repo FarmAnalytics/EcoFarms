@@ -13,4 +13,8 @@ class UserPolicy < ApplicationPolicy
     true
   end
 
+  def new?
+    true
+  end
+
 end

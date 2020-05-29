@@ -5,7 +5,11 @@ class ListPolicy < ApplicationPolicy
     end
   end
 
-  def index?
-    true 
+  def new?
+    true
+  end
+
+  def create?
+    true
   end
 end

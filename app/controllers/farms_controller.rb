@@ -16,5 +16,4 @@ class FarmsController < ApplicationController
     @farm = Farm.find(params[:id])
     authorize @farm
   end
-    
 end

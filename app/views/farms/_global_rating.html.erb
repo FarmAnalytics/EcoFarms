@@ -1,5 +1,5 @@
 <div class="p-4">
-  <% Criterion.where(category_id: Category.where(name: "Global")).each do |critere| %>
+  <% Criterion.where(category_id: Category.where(name: zone)).each do |critere| %>
     <div class="mb-1 row">
       <div class="col-3">
         <%= critere.name %>

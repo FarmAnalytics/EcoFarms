@@ -21,5 +21,4 @@ class FarmsController < ApplicationController
     @wish_lists = List.where(shop_id: Shop.where(user_id: User.find(params[:id])))
     @list = List.new
   end
-    
 end

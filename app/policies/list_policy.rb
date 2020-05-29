@@ -12,5 +12,4 @@ class ListPolicy < ApplicationPolicy
   def create?
     true
   end
-
 end

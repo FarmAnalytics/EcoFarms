@@ -130,6 +130,8 @@ CSV.foreach('db/seeds.csv') do |row|
   farm.user = user
   farm.save!
 
+  # ------------------- GLOBAL SCORING -------------------
+
   aut_scoring = Scoring.new(
     score: row[30].to_i,
     details: row[31] )
@@ -165,6 +167,8 @@ CSV.foreach('db/seeds.csv') do |row|
   rs_scoring.criterion = Criterion.find_by(name: 'Responsabilite sociale')
   rs_scoring.save!
 
+  # ------------------- SOCIAL SCORING -------------------
+
   ali_scoring = Scoring.new(
     score: row[40].to_i,
     details: row[41] )
@@ -179,51 +183,49 @@ CSV.foreach('db/seeds.csv') do |row|
   col_scoring.criterion = Criterion.find_by(name: 'Collaboration')
   col_scoring.save!
 
-  # ----------------------------------------------------------------
+  dec_scoring = Scoring.new(
+    score: rand(20..90),
+    details: "" )
+  dec_scoring.farm = farm
+  dec_scoring.criterion = Criterion.find_by(name: 'Déchets')
+  dec_scoring.save!
 
-  # dec_scoring = Scoring.new(
-  #   score: row[30].to_i,
-  #   details: row[31] )
-  # dec_scoring.farm = farm
-  # dec_scoring.criterion = Criterion.find_by(name: 'Déchets')
-  # dec_scoring.save!
+  dev_scoring = Scoring.new(
+    score: rand(20..90),
+    details: "" )
+  dev_scoring.farm = farm
+  dev_scoring.criterion = Criterion.find_by(name: 'Développement local')
+  dev_scoring.save!
 
-  # dev_scoring = Scoring.new(
-  #   score: row[30].to_i,
-  #   details: row[31] )
-  # dev_scoring.farm = farm
-  # dev_scoring.criterion = Criterion.find_by(name: 'Développement local')
-  # dev_scoring.save!
+  edu_scoring = Scoring.new(
+    score: rand(20..90),
+    details: "" )
+  edu_scoring.farm = farm
+  edu_scoring.criterion = Criterion.find_by(name: 'Education')
+  edu_scoring.save!
 
-  # edu_scoring = Scoring.new(
-  #   score: row[30].to_i,
-  #   details: row[31] )
-  # edu_scoring.farm = farm
-  # edu_scoring.criterion = Criterion.find_by(name: 'Education')
-  # edu_scoring.save!
+  eth_scoring = Scoring.new(
+    score: rand(20..90),
+    details: "" )
+  eth_scoring.farm = farm
+  eth_scoring.criterion = Criterion.find_by(name: 'Ethique et développement humain')
+  eth_scoring.save!
 
-  # eth_scoring = Scoring.new(
-  #   score: row[30].to_i,
-  #   details: row[31] )
-  # eth_scoring.farm = farm
-  # eth_scoring.criterion = Criterion.find_by(name: 'Ethique et développement humain')
-  # eth_scoring.save!
+  hs_scoring = Scoring.new(
+    score: rand(20..90),
+    details: "" )
+  hs_scoring.farm = farm
+  hs_scoring.criterion = Criterion.find_by(name: 'Hygiène et sécurité')
+  hs_scoring.save!
 
-  # hs_scoring = Scoring.new(
-  #   score: row[30].to_i,
-  #   details: row[31] )
-  # hs_scoring.farm = farm
-  # hs_scoring.criterion = Criterion.find_by(name: 'Hygiène et sécurité')
-  # hs_scoring.save!
+  trs_scoring = Scoring.new(
+    score: rand(20..90),
+    details: "" )
+  trs_scoring.farm = farm
+  trs_scoring.criterion = Criterion.find_by(name: 'Transparence')
+  trs_scoring.save!
 
-  # trs_scoring = Scoring.new(
-  #   score: row[30].to_i,
-  #   details: row[31] )
-  # trs_scoring.farm = farm
-  # trs_scoring.criterion = Criterion.find_by(name: 'Transparence')
-  # trs_scoring.save!
-
-    # ----------------------------------------------------------------
+  # ------------------- ENV SCORING -------------------
 
   biod_scoring = Scoring.new(
     score: row[114].to_i,
@@ -231,6 +233,55 @@ CSV.foreach('db/seeds.csv') do |row|
   biod_scoring.farm = farm
   biod_scoring.criterion = Criterion.find_by(name: 'Biodiversité')
   biod_scoring.save!
+ 
+  cult_scoring = Scoring.new(
+    score: rand(20..90),
+    details: "" )
+  cult_scoring.farm = farm
+  cult_scoring.criterion = Criterion.find_by(name: 'Culture')
+  cult_scoring.save!
+
+  elev_scoring = Scoring.new(
+    score: rand(20..90),
+    details: "" )
+  elev_scoring.farm = farm
+  elev_scoring.criterion = Criterion.find_by(name: 'Elevage')
+  elev_scoring.save!
+
+  fert_scoring = Scoring.new(
+    score: rand(20..90),
+    details: "" )
+  fert_scoring.farm = farm
+  fert_scoring.criterion = Criterion.find_by(name: 'Fertilisation')
+  fert_scoring.save!
+
+  prodphy_scoring = Scoring.new(
+    score: rand(20..90),
+    details: "" )
+  prodphy_scoring.farm = farm
+  prodphy_scoring.criterion = Criterion.find_by(name: 'Produits phytosanitaires')
+  prodphy_scoring.save!
+
+  ressair_scoring = Scoring.new(
+    score: rand(20..90),
+    details: "" )
+  ressair_scoring.farm = farm
+  ressair_scoring.criterion = Criterion.find_by(name: 'Ressources - Air')
+  ressair_scoring.save!
+  
+  resseau_scoring = Scoring.new(
+    score: rand(20..90),
+    details: "" )
+  resseau_scoring.farm = farm
+  resseau_scoring.criterion = Criterion.find_by(name: 'Ressources - Eau')
+  resseau_scoring.save!
+  
+  ressene_scoring = Scoring.new(
+    score: rand(20..90),
+    details: "" )
+  ressene_scoring.farm = farm
+  ressene_scoring.criterion = Criterion.find_by(name: 'Ressources - Energie')
+  ressene_scoring.save!
 
   sol_scoring = Scoring.new(
     score: row[142].to_i,
@@ -239,12 +290,14 @@ CSV.foreach('db/seeds.csv') do |row|
   sol_scoring.criterion = Criterion.find_by(name: 'Sol')
   sol_scoring.save!
 
-  pere_scoring = Scoring.new(
-    score: row[170].to_i,
-    details: row[171] )
-  pere_scoring.farm = farm
-  pere_scoring.criterion = Criterion.find_by(name: 'Pérennité')
-  pere_scoring.save!
+  # ------------------- ECONOMIC SCORING -------------------
+
+  effglo_scoring = Scoring.new(
+    score: rand(20..90),
+    details: "" )
+  effglo_scoring.farm = farm
+  effglo_scoring.criterion = Criterion.find_by(name: 'Efficience globale')
+  effglo_scoring.save!
 
   inde_scoring = Scoring.new(
     score: row[198].to_i,
@@ -252,6 +305,20 @@ CSV.foreach('db/seeds.csv') do |row|
   inde_scoring.farm = farm
   inde_scoring.criterion = Criterion.find_by(name: 'Indépendance économique')
   inde_scoring.save!
+
+  pere_scoring = Scoring.new(
+    score: row[170].to_i,
+    details: row[171] )
+  pere_scoring.farm = farm
+  pere_scoring.criterion = Criterion.find_by(name: 'Pérennité')
+  pere_scoring.save!
+  
+  viaeco_scoring = Scoring.new(
+    score: rand(20..90),
+    details: "" )
+  viaeco_scoring.farm = farm
+  viaeco_scoring.criterion = Criterion.find_by(name: 'Viabilité économique')
+  viaeco_scoring.save!
 end
 
 puts "Users and Farms have been created"

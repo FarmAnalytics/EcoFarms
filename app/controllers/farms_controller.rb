@@ -18,7 +18,7 @@ class FarmsController < ApplicationController
     @shop = Shop.where(user_id: @user.id).first
     authorize @farm
 
-    @wish_lists = List.where(shop_id: Shop.where(user_id: User.find(params[:id])))
+    @wish_lists = List.where(shop_id: Shop.where(user_id: User.find(current_user.id)))
     @list = List.new
   end
 end

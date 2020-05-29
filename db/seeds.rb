@@ -179,51 +179,47 @@ CSV.foreach('db/seeds.csv') do |row|
   col_scoring.criterion = Criterion.find_by(name: 'Collaboration')
   col_scoring.save!
 
-  # ----------------------------------------------------------------
+  dec_scoring = Scoring.new(
+    score: rand(20..90),
+    details: "" )
+  dec_scoring.farm = farm
+  dec_scoring.criterion = Criterion.find_by(name: 'Déchets')
+  dec_scoring.save!
 
-  # dec_scoring = Scoring.new(
-  #   score: row[30].to_i,
-  #   details: row[31] )
-  # dec_scoring.farm = farm
-  # dec_scoring.criterion = Criterion.find_by(name: 'Déchets')
-  # dec_scoring.save!
+  dev_scoring = Scoring.new(
+    score: rand(20..90),
+    details: "" )
+  dev_scoring.farm = farm
+  dev_scoring.criterion = Criterion.find_by(name: 'Développement local')
+  dev_scoring.save!
 
-  # dev_scoring = Scoring.new(
-  #   score: row[30].to_i,
-  #   details: row[31] )
-  # dev_scoring.farm = farm
-  # dev_scoring.criterion = Criterion.find_by(name: 'Développement local')
-  # dev_scoring.save!
+  edu_scoring = Scoring.new(
+    score: rand(20..90),
+    details: "" )
+  edu_scoring.farm = farm
+  edu_scoring.criterion = Criterion.find_by(name: 'Education')
+  edu_scoring.save!
 
-  # edu_scoring = Scoring.new(
-  #   score: row[30].to_i,
-  #   details: row[31] )
-  # edu_scoring.farm = farm
-  # edu_scoring.criterion = Criterion.find_by(name: 'Education')
-  # edu_scoring.save!
+  eth_scoring = Scoring.new(
+    score: rand(20..90),
+    details: "" )
+  eth_scoring.farm = farm
+  eth_scoring.criterion = Criterion.find_by(name: 'Ethique et développement humain')
+  eth_scoring.save!
 
-  # eth_scoring = Scoring.new(
-  #   score: row[30].to_i,
-  #   details: row[31] )
-  # eth_scoring.farm = farm
-  # eth_scoring.criterion = Criterion.find_by(name: 'Ethique et développement humain')
-  # eth_scoring.save!
+  hs_scoring = Scoring.new(
+    score: rand(20..90),
+    details: "" )
+  hs_scoring.farm = farm
+  hs_scoring.criterion = Criterion.find_by(name: 'Hygiène et sécurité')
+  hs_scoring.save!
 
-  # hs_scoring = Scoring.new(
-  #   score: row[30].to_i,
-  #   details: row[31] )
-  # hs_scoring.farm = farm
-  # hs_scoring.criterion = Criterion.find_by(name: 'Hygiène et sécurité')
-  # hs_scoring.save!
-
-  # trs_scoring = Scoring.new(
-  #   score: row[30].to_i,
-  #   details: row[31] )
-  # trs_scoring.farm = farm
-  # trs_scoring.criterion = Criterion.find_by(name: 'Transparence')
-  # trs_scoring.save!
-
-    # ----------------------------------------------------------------
+  trs_scoring = Scoring.new(
+    score: rand(20..90),
+    details: "" )
+  trs_scoring.farm = farm
+  trs_scoring.criterion = Criterion.find_by(name: 'Transparence')
+  trs_scoring.save!
 
   biod_scoring = Scoring.new(
     score: row[114].to_i,

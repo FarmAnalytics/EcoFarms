@@ -1,0 +1,29 @@
+<% @lists.each do |list| %>
+<div id="<%= list.name %>" class="tabcontent">
+  <h3 class="py-3">Ma Liste : <%= list.name %></h3>
+  <div class="table-responsive">
+    <table class="table table-striped table-sm">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Score générale</th>
+          <th>Note sociale</th>
+          <th>Note environnementale</th>
+          <th>Note économique</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% Like.where(list_id: list.id).each do |like| %>
+        <tr>
+          <td><%= Farm.find(like.farm_id).name %></td>
+          <td><%= Farm.find(like.farm_id).average("Global") %></td>
+          <td><%= Farm.find(like.farm_id).average("Social") %></td>
+          <td><%= Farm.find(like.farm_id).average("Économique") %></td>
+          <td><%= Farm.find(like.farm_id).average("Environnemental") %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<% end %>

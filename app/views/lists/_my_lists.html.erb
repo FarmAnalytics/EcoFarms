@@ -1,0 +1,28 @@
+<div class="table-responsive">
+  <table class="table table-striped table-sm">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Nom</th>
+        <th>Boutique</th>
+        <th>Visibilité</th>
+        <th>Header</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% List.where(shop_id: Shop.where(user_id: current_user.id)).each do |list| %>
+        <tr>
+          <td class="text-center">
+            <a href="#">
+              <i class="btn-sm btn-outline-success fas fa-plus"></i>
+            </a>
+          </td>
+          <td><%= list.name %></td>
+          <td><%= Shop.find(list.shop_id).address %></td>
+          <td><%= list.private ? "private" : "public"%></td>
+          <td>sit</td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

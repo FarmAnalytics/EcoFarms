@@ -4,43 +4,44 @@
     <%= render 'shared/sidebar' %>
 
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
-      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-3">
-        <h1 class="h2">Mes Listes</h1>
-        <div class="btn-toolbar mb-2 mb-md-0">
-          <div class="btn-group mr-2">
-            <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+      <div class="container">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2">
+          <h1 class="h2">Mes Listes</h1>
+          <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group mr-2 my-4">
+              <button type="button" class="btn btn-outline-secondary">Share</button>
+              <button type="button" class="btn btn-outline-secondary">Export</button>
+            </div>
           </div>
         </div>
+
+        <%= render 'my_lists' %>
+
+        <%= render 'displayed_list' %>
+
+        <script>
+          function openList(evt, listName) {
+            // Declare all variables
+            var i, tabcontent, tablinks;
+
+            // Get all elements with class="tabcontent" and hide them
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+              tabcontent[i].style.display = "none";
+            }
+
+            // Get all elements with class="tablinks" and remove the class "active"
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+              tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+
+            // Show the current tab, and add an "active" class to the button that opened the tab
+            document.getElementById(listName).style.display = "block";
+            evt.currentTarget.className += " active";
+          }
+        </script>
       </div>
-
-      <%= render 'my_lists' %>
-
-      <%= render 'displayed_list' %>
-      
-      <script>
-        function openList(evt, listName) {
-          // Declare all variables
-          var i, tabcontent, tablinks;
-
-          // Get all elements with class="tabcontent" and hide them
-          tabcontent = document.getElementsByClassName("tabcontent");
-          for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-          }
-
-          // Get all elements with class="tablinks" and remove the class "active"
-          tablinks = document.getElementsByClassName("tablinks");
-          for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" active", "");
-          }
-
-          // Show the current tab, and add an "active" class to the button that opened the tab
-          document.getElementById(listName).style.display = "block";
-          evt.currentTarget.className += " active";
-        }
-      </script>
-      
     </main>
   </div>
 </div>

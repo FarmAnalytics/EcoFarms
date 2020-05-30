@@ -6,20 +6,22 @@
       <thead>
         <tr>
           <th>Name</th>
-          <th>Score générale</th>
-          <th>Note sociale</th>
-          <th>Note environnementale</th>
-          <th>Note économique</th>
+          <th class="text-center">Score générale</th>
+          <th class="text-center">Note global</th>
+          <th class="text-center">Note sociale</th>
+          <th class="text-center">Note environnementale</th>
+          <th class="text-center">Note économique</th>
         </tr>
       </thead>
       <tbody>
         <% Like.where(list_id: list.id).each do |like| %>
         <tr>
           <td><%= Farm.find(like.farm_id).name %></td>
-          <td><%= Farm.find(like.farm_id).average("Global") %></td>
-          <td><%= Farm.find(like.farm_id).average("Social") %></td>
-          <td><%= Farm.find(like.farm_id).average("Économique") %></td>
-          <td><%= Farm.find(like.farm_id).average("Environnemental") %></td>
+          <td class="text-center"><%= Farm.find(like.farm_id).total %></td>
+          <td class="text-center"><%= Farm.find(like.farm_id).average("Global") %></td>
+          <td class="text-center"><%= Farm.find(like.farm_id).average("Social") %></td>
+          <td class="text-center"><%= Farm.find(like.farm_id).average("Économique") %></td>
+          <td class="text-center"><%= Farm.find(like.farm_id).average("Environnemental") %></td>
         </tr>
         <% end %>
       </tbody>

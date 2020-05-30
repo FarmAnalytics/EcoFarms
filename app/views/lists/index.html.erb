@@ -14,31 +14,33 @@
         </div>
       </div>
 
-      <%= render 'my_lists' %> %>
+      <%= render 'my_lists' %>
+
+      <%= render 'displayed_list' %>
+
+      <script>
+        function openList(evt, listName) {
+          // Declare all variables
+          var i, tabcontent, tablinks;
+
+          // Get all elements with class="tabcontent" and hide them
+          tabcontent = document.getElementsByClassName("tabcontent");
+          for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+          }
+
+          // Get all elements with class="tablinks" and remove the class "active"
+          tablinks = document.getElementsByClassName("tablinks");
+          for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+          }
+
+          // Show the current tab, and add an "active" class to the button that opened the tab
+          document.getElementById(listName).style.display = "block";
+          evt.currentTarget.className += " active";
+        }
+      </script>
       
-      <h3 class="py-3">Ma Liste : List 1</h3>
-      <div class="table-responsive">
-        <table class="table table-striped table-sm">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Score générale</th>
-              <th>Note sociale</th>
-              <th>Note environnementale</th>
-              <th>Note économique</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1,001</td>
-              <td>Lorem</td>
-              <td>ipsum</td>
-              <td>dolor</td>
-              <td>sit</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
     </main>
   </div>
 </div>

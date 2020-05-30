@@ -10,10 +10,10 @@
       </tr>
     </thead>
     <tbody>
-      <% List.where(shop_id: Shop.where(user_id: current_user.id)).each do |list| %>
+      <% @lists.each do |list| %>
         <tr>
           <td class="text-center">
-            <a href="#">
+            <a class="tablinks" onclick="openList(event, '<%= list.name %>')">
               <i class="btn-sm btn-outline-success fas fa-plus"></i>
             </a>
           </td>

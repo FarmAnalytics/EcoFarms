@@ -20,5 +20,15 @@ class FarmsController < ApplicationController
 
     @wish_lists = List.where(shop_id: Shop.where(user_id: current_user.id))
     @list = List.new
+
+    @clap = Clap.new
+  end
+
+  def count_clap
+    skip_authorization
+    @claps = Clap.where(farm_id: params[:id]).count
+    respond_to do |format|
+      format.json { render json: { clapsCount: @claps } }
+     end
   end
 end

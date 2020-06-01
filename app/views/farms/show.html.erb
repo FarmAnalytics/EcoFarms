@@ -51,8 +51,8 @@
 
 <div class="bg-primary">
   <div class="container">
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
-      <li class="nav-item">
+    <ul class="nav nav-tabs row" id="myTab" role="tablist">
+      <li class="nav-item col-2 pl-0">
         <a class="nav-link active" id="env-tab" data-toggle="tab" href="#env" role="tab" aria-controls="env" aria-selected="true">
           <div class="pt-3 px-3 text-center">
             <div class="h1 m-0">
@@ -65,7 +65,7 @@
           </div>
         </a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item col-2">
         <a class="nav-link" id="social-tab" data-toggle="tab" href="#social" role="tab" aria-controls="social" aria-selected="false">
           <div class="pt-3 px-3 text-center">
             <div class="h1 m-0">
@@ -78,7 +78,7 @@
           </div>
         </a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item col-2">
         <a class="nav-link" id="eco-tab" data-toggle="tab" href="#eco" role="tab" aria-controls="eco" aria-selected="false">
         <div class="pt-3 px-3 text-center">
             <div class="h1 m-0">
@@ -91,7 +91,7 @@
           </div>
         </a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item col-2">
         <a class="nav-link" id="globale-tab" data-toggle="tab" href="#globale" role="tab" aria-controls="globale" aria-selected="false">
           <div class="pt-3 px-3 text-center">
             <div class="h1 m-0">
@@ -108,7 +108,7 @@
   </div>
 </div>
 
-<div class="container">
+<div class="container p-0">
   <div class="tab-content border border-top-0 rounded-bottom mb-5" id="myTabContent">
     <div class="tab-pane fade show active" id="env" role="tabpanel" aria-labelledby="env-tab">
       <%= render 'rating', zone: "Environnemental" %>

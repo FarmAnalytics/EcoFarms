@@ -19,14 +19,18 @@ const enable_inputs = () => {
 const init_profile_form = () => {
   const modify = document.getElementById('modify-profile');
   const save = document.getElementById('save-profile');
-  modify.addEventListener('click', () => {
-    save.classList.remove('d-none');
-    modify.classList.add('d-none');
-    enable_inputs();
-  });
-  save.addEventListener('click', () => {
+  if (modify) {
+    modify.addEventListener('click', () => {
+      save.classList.remove('d-none');
+      modify.classList.add('d-none');
+      enable_inputs();
+    });
+  }
+  if (save) {
+    save.addEventListener('click', () => {
     document.querySelector('.edit_user').submit()
-  })
+    })
+  }
 }
 
 

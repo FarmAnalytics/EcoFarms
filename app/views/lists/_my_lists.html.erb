@@ -13,7 +13,7 @@
       <% @lists.each do |list| %>
         <tr>
           <td class="text-center">
-            <a class="tablinks" onclick="openList(event, '<%= list.name %>')">
+            <a class="tablinks listTrigger" data-target="<%= list.name %>">
               <i class="btn-sm btn-outline-success fas fa-plus"></i>
             </a>
           </td>

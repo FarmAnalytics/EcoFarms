@@ -27,7 +27,7 @@ import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
 import { initSelect2 } from '../plugins/init_select2';
 import { init_profile_form } from '../components/modify_profile';
-
+import { handleClick } from '../components/display_list';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -39,4 +39,5 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   feather.replace();
   init_profile_form();
+  handleClick();
   });

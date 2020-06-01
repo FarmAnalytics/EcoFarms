@@ -1,7 +1,14 @@
 class FarmsController < ApplicationController
 
   def index
+
+    @tags = ['Légumes', 'Fruits', 'Viande', 'Crèmerie', 'Vin']
     @farms = policy_scope(Farm).geocoded
+
+    if params[:search].present? && params[:search][:query] != ''
+     @farms = policy_scope(Farm.geocoded.near(params[:search][:query])).tagged_with(params[:type])
+    end
+
     @markers = @farms.map do |farm|
       {
         lat: farm.latitude,

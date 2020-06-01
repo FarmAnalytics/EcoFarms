@@ -1,0 +1,16 @@
+.tab {
+  overflow: hidden;
+}
+
+.tabcontent {
+  display: none;
+}
+
+.menu-option {
+  text-decoration: none!important;
+  margin-top: 5px;
+  &:hover {
+    color: black;
+    background-color: #E8E8E8;
+  }
+}

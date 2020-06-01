@@ -1,20 +1,22 @@
-<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light collapse">
-  <div class="sidebar-sticky pt-3 border-right">
-    <ul class="nav flex-column">
-      <li class="nav-item">
-        <%= link_to profile_user_path, class: "nav-link" do %>
-            <span data-feather="user"></span><%= " Mon Profil" %>
-            <span class="sr-only">(current)</span>
+<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light collapse border-right pr-0">
+  <div class="sidebar-sticky pt-3">
+    <ul class="nav flex-column pl-3">
+      <li>
+        <%= link_to profile_user_path, class: "menu-option nav-link" do %>
+          <i class="far fa-user"></i>
+          <span class="pl-3"> Mon Profil</span>
         <% end %>
       </li>
-      <li class="nav-item">
-        <%= link_to user_lists_path, class: "nav-link" do %>
-            <span data-feather="list"></span><%= " Mes Listes" %>
+      <li>
+        <%= link_to user_lists_path, class: "menu-option nav-link" do %>
+          <i class="fas fa-list"></i>
+          <span class="pl-3">Mes Listes</span>
         <% end %>
       </li>
-      <li class="nav-item">
-        <%= link_to root_path, class: "nav-link" do %>
-            <span data-feather="message-circle"></span><%= " Mes Messages" %>
+      <li>
+        <%= link_to root_path, class: "menu-option nav-link" do %>
+          <i class="far fa-comment"></i>
+          <span class="pl-3">Mes Messages</span>
         <% end %>
     </ul>
   </div>

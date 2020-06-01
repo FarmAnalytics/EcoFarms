@@ -3,7 +3,7 @@ class ListsController < ApplicationController
   def index
     skip_authorization
     @user = current_user
-    @lists = policy_scope(List).where(user: current_user.id)
+    @lists = policy_scope(List).where(shop_id: Shop.where(user_id: current_user.id))
   end
 
   def create

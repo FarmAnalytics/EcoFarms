@@ -6,9 +6,10 @@
       </div>
       <div class="col-9">
         <div class="progress">
-          <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="<%= Scoring.find_by(farm_id: params[:id], criterion_id: critere.id).score %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= Scoring.find_by(farm_id: params[:id], criterion_id: critere.id).score %>%">
+          <div class="progress-bar" role="progressbar" aria-valuenow="<%= Scoring.find_by(farm_id: params[:id], criterion_id: critere.id).score %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= Scoring.find_by(farm_id: params[:id], criterion_id: critere.id).score %>%">
             <%= Scoring.find_by(farm_id: params[:id], criterion_id: critere.id).score %>
           </div>
+           <div class="progress-bar-2" role="progressbar" aria-valuenow="<%= 100 - Scoring.find_by(farm_id: params[:id], criterion_id: critere.id).score %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= 100 - Scoring.find_by(farm_id: params[:id], criterion_id: critere.id).score %>%"></div>
         </div>
       </div>
     </div>

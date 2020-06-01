@@ -6,7 +6,7 @@
         <th>Nom</th>
         <th>Boutique</th>
         <th>Visibilité</th>
-        <th></th>
+        <th>Header</th>
       </tr>
     </thead>
     <tbody>
@@ -20,11 +20,7 @@
           <td><%= list.name %></td>
           <td><%= Shop.find(list.shop_id).address %></td>
           <td><%= list.private ? "private" : "public"%></td>
-          <td>
-            <%= link_to list_path(list), method: :delete do %>
-                <i class="mr-2 fas fa-trash-alt"></i>
-              <% end %>
-          </td>
+          <td>sit</td>
         </tr>
       <% end %>
     </tbody>

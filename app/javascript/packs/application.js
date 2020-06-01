@@ -26,17 +26,20 @@ require("channels")
 import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
 import { initSelect2 } from '../plugins/init_select2';
+import { initAutocomplete } from '../plugins/init_autocomplete';
 import { init_profile_form } from '../components/modify_profile';
-
+import { handleClick } from '../components/display_list';
+import { initClapsCounter } from '../components/claps_counter'
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
-const feather = require("feather-icons");
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   initSelect2();
   initMapbox();
-  feather.replace();
+  initAutocomplete();
   init_profile_form();
+  handleClick();
+  initClapsCounter();
   });

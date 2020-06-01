@@ -7,12 +7,13 @@ Rails.application.routes.draw do
   
   get '/farms_layout', to: 'pages#farms_layout'
   get '/dashboard_layout', to: 'pages#dashboard_layout'
+  get '/farms/:id/count_clap', to: 'farms#count_clap'
 
   resources :farms do
     resources :claps, only: [ :create ]
     resources :scorings, only: [ :create ]
   end
-  
+
   resources :likes, only: [ :create ]
   
   # resources :users, only: [ :show, :edit ] do

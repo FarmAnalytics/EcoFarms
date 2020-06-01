@@ -10,6 +10,6 @@
     Clap
 </a> %>
 
-<%= simple_form_for [ @farm, @clap ] do |f| %>
-  <%= f.submit 'Clap', class: "btn btn-success text-white ml-3" %>
+<%= simple_form_for [ @farm, @clap ], html: {class: "formclapbutton"} do |f| %>
+  <%= f.submit 'Clap', class: "btn btn-success text-white ml-3 clapbutton"%>
 <% end %>

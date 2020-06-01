@@ -24,4 +24,11 @@ class FarmsController < ApplicationController
     @clap = Clap.new
   end
 
+  def count_clap
+    skip_authorization
+    @claps = Clap.where(farm_id: params[:id]).count
+    respond_to do |format|
+      format.json { render json: { clapsCount: @claps } }
+     end
+  end
 end

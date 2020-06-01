@@ -33,6 +33,4 @@ const init_profile_form = () => {
   }
 }
 
-
-
 export { init_profile_form };

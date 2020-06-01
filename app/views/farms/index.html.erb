@@ -47,7 +47,7 @@
     style="width: 100%; height: 500px;"
     data-markers="<%= @markers.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-    data-latitude="<%= Geocoder.search(params[:query]).first.latitude if !params[:query].nil? %>"
-    data-longitude="<%= Geocoder.search(params[:query]).first.longitude if !params[:query].nil? %>"></div>
+    data-latitude="<%= Geocoder.search(params[:query]).first.latitude if (!params[:query].nil? && params[:query]!="") %>"
+    data-longitude="<%= Geocoder.search(params[:query]).first.longitude if (!params[:query].nil? && params[:query]!="") %>"></div>
 
 

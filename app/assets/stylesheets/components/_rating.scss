@@ -24,8 +24,8 @@
   right:20px;
   left:20px;
   height:80px;
-  background-color: #F4F4F4;
-  border-radius: 150px 150px 0 0
+  background-color: $primary;
+  border-radius: 150px 150px 0 0;
 }
 
 .sc-percentage {
@@ -35,7 +35,8 @@
   width:400%;
   height:400%;
   margin-left:100px;
-  background: linear-gradient(90deg, rgba(226,65,65,1) 0%, rgba(228,218,32,1) 50%, rgba(13,217,107,1) 100%);
+  background: linear-gradient(90deg, rgba(64,245,9,1) 25%, rgba(198,230,10,1) 50%, rgba(229,148,12,1) 75%);
+  transition: transform 2s ease;
 }
 
 .sc-percentage {
@@ -60,4 +61,15 @@
 
 .progress-bar-2 {
   background: lightgrey;
+}
+
+.nav-item a {
+  color: lightgrey;
+  :hover {
+    color: white
+  }
+}
+
+.nav-link.active {
+  background-color: white !important;
 }

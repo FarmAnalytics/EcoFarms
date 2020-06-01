@@ -10,7 +10,7 @@
 // }
 
 const enable_inputs = () => {
-  const inputs = document.getElementById('edit_user_21').querySelectorAll('input');
+  const inputs = document.querySelector('.edit_user').querySelectorAll('input');
   inputs.forEach((input) => {
     input.removeAttribute('disabled');
     })

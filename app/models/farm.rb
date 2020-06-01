@@ -1,4 +1,5 @@
 class Farm < ApplicationRecord
+  acts_as_taggable_on :tags
   belongs_to :user
   has_many_attached :photos
   geocoded_by :address

@@ -360,5 +360,21 @@ end
   
 puts "#{Clap.count} claps created"
 
+puts "Creating tags on farms ..."
+
+tab_tag = ['Légumes', 'Fruits', 'Viande', 'Crèmerie', 'Vin']
+
+Farm.all.each do |f|
+  (1..3).to_a.sample.times do 
+    f.tag_list.add(tab_tag.sample)
+    f.save!
+  end
+end
+  
+puts "Tags added"
+
+
+
+
 
 puts "\nFinished!"

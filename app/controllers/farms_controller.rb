@@ -20,5 +20,8 @@ class FarmsController < ApplicationController
 
     @wish_lists = List.where(shop_id: Shop.where(user_id: current_user.id))
     @list = List.new
+
+    @clap = Clap.new
   end
+
 end

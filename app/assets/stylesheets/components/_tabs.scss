@@ -14,3 +14,20 @@
     background-color: #E8E8E8;
   }
 }
+
+#myTab{
+  border-bottom: 0px;
+}
+
+.nav-item a {
+  color: lightgrey;
+  :hover {
+    color: #f6a030;
+  }
+}
+
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+  color: #495057;
+  background-color: white;
+  border-color: white;
+}

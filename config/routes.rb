@@ -28,6 +28,6 @@ Rails.application.routes.draw do
 
   resources :shops, only: [ :show, :edit ]
 
-  resources :lists, only: [ :new, :create]
+  resources :lists, only: [ :create, :destroy ]
 
 end

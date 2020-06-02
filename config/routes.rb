@@ -23,11 +23,14 @@ Rails.application.routes.draw do
   resource :user, only: [:update] do 
       get :profile
       get :messages
+      resources :chatrooms, only: [:index, :show]
       resources :lists, only: [:index, :show]
   end 
 
   resources :shops, only: [ :show, :edit ]
 
   resources :lists, only: [ :create, :destroy ]
+
+  resources :messages, only: [:show, :create]
 
 end

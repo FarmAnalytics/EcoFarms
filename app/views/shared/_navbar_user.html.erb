@@ -1,0 +1,14 @@
+<div class="nav d-flex justify-content-center navbar navbar-expand-sm navbar-light navbar-lewagon border-top border-bottom">
+  <%= link_to profile_user_path, class: "menu-option nav-link" do %>
+    <i class="far fa-user"></i>
+      <span class="pl-3"> Mon Profil</span>
+    <% end %>
+    <%= link_to user_lists_path, class: "menu-option nav-link" do %>
+      <i class="fas fa-list"></i>
+    <span class="pl-3">Mes Listes</span>
+    <% end %>
+      <%= link_to root_path, class: "menu-option nav-link" do %>
+        <i class="far fa-comment"></i>
+      <span class="pl-3">Mes Messages</span>
+    <% end %>
+</div>

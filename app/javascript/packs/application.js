@@ -29,17 +29,19 @@ import { initSelect2 } from '../plugins/init_select2';
 import { initAutocomplete } from '../plugins/init_autocomplete';
 import { init_profile_form } from '../components/modify_profile';
 import { handleClick } from '../components/display_list';
-import { initClapsCounter } from '../components/claps_counter'
+import { initClapsCounter } from '../components/claps_counter';
+import { initChatroomCable } from '../channels/chatroom_channel';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
-  initSelect2();
   initMapbox();
   initAutocomplete();
   init_profile_form();
   handleClick();
   initClapsCounter();
+  initChatroomCable();
+  initSelect2();
   });

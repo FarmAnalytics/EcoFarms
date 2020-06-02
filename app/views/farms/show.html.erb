@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row no-gutters flex-md-row">
       <div class="col-8">
-        <h3 class="display-4"><%= @farm.name %></h3>
+        <h2><%= @farm.name %></h2>
         <p class="lead my-3"><%= @farm.sector %></p>
         <div class="card-text">
           <p class="m-0"><%= @farm.description %></p>
@@ -42,8 +42,8 @@
         </div>
       </div>
         <div class="col-4">
-                <%= render 'claps' %>
-                <%= render 'add_to_list' %>
+            <%= render 'claps' %>
+            <%= render 'add_to_list' %>
         </div>
     </div>
   </div>
@@ -124,3 +124,4 @@
     </div>
   </div>
 </div>
+

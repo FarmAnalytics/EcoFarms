@@ -1,13 +1,13 @@
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h1 class="h2">Mon Compte</h1>
-    <div>
-        <button id='modify-profile' type="submit" class="btn btn-success text-white my-4">
-          <i class="fas fa-edit"></i> Modifier
-        </button>
-        <%= link_to '#', id:'save-profile', class: "btn btn-success text-white my-4 d-none" do %>
-        <i class="far fa-save"></i> Sauvegarder
-        <% end %>
-    </div>
+        <h1 class="h2">Mon Compte</h1>
+        <div>
+            <button id='modify-profile' type="submit" class="btn btn-success text-white my-4">
+            <i class="fas fa-edit"></i> Modifier
+            </button>
+            <%= link_to '#', id:'save-profile', class: "btn btn-success text-white my-4 d-none" do %>
+            <i class="far fa-save"></i> Sauvegarder
+            <% end %>
+        </div>
 </div>
 <div id="user-form-disabled">
     <%= simple_form_for @user, url: user_path, method: :patch do |f| %>
@@ -17,6 +17,7 @@
         <%= f.input :phone_number, input_html: { value: f.object.phone_number }, disabled: true %>
     <% end %>
 </div>
+
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
     <h1 class="h2">Mes établissements</h1>
     <button id='modify-shop' type="submit" class="btn btn-success text-white my-4">

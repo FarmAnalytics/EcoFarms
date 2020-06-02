@@ -1,0 +1,12 @@
+<% @lists.each do |list| %>
+  <div id="<%= list.name %>" class="tabcontent">
+    <h3 class="py-3"><%= list.name %></h3>
+    <div class="row">
+      <p class="text-center">Score générale</p>
+      <p class="text-center">Note global</p>
+      <p class="text-center">Note sociale</p>
+      <p class="text-center">Note environnementale</p>
+      <p class="text-center">Note économique</p>
+    </div>
+  </div>
+<% end %>

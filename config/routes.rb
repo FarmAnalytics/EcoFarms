@@ -12,18 +12,18 @@ Rails.application.routes.draw do
   resources :farms do
     resources :claps, only: [ :create ]
     resources :scorings, only: [ :create ]
+    resources :likes, only: [ :create ]
   end
-
-  resources :likes, only: [ :create ]
   
   # resources :users, only: [ :show, :edit ] do
   #   resources :lists
   # end
 
-  resource :user, only: [:update] do 
+  resource :user, only: [ :update ] do 
       get :profile
       get :messages
-      resources :lists, only: [:index, :show]
+      resources :lists, only: [ :index, :show ]
+      resources :shops, only: [ :create ]
   end 
 
   resources :chatrooms, only: [:index, :show] do 
@@ -31,7 +31,7 @@ Rails.application.routes.draw do
   end
 
   resources :shops, only: [ :show, :edit ]
-
+  resources :likes, only: [ :destroy ]
   resources :lists, only: [ :create, :destroy ]
 
 

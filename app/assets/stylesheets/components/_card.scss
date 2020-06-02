@@ -2,6 +2,10 @@
   position: relative;
 }
 
+#list_name::placeholder {
+  font-style: italic;  
+}
+
 .farm-card {
   overflow: hidden;
   height: 93%;

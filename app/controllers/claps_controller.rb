@@ -9,6 +9,9 @@ class ClapsController < ApplicationController
     @clap.user = @user
     @clap.farm = @farm
     @clap.save
+    render json: {
+      clap_count: @farm.claps.count
+    }
   end
   
 end

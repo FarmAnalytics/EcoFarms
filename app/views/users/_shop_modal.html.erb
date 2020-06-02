@@ -1,0 +1,22 @@
+<div class="modal fade" id="shopmodal" tabindex="-1" role="dialog" aria-labelledby="shopmodalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content text-body">
+      <div class="modal-header">
+        <h5 class="modal-title" id="shopmodalLabel">Créez une nouvelle liste</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for [ @user, @shop ] do |f| %>
+          <%= f.input :address, placeholder: "Mon magasin" %>
+          <%= f.submit "Sauvegarder", class: "btn btn-success text-white my-2" %>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
+
+<%# <%= link_to "Ajouter", user_shops_path(current_user), class: "btn btn-success text-white my-4", method: :post %>

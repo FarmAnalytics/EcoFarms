@@ -4,6 +4,7 @@ class Farm < ApplicationRecord
   has_many_attached :photos
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+  has_many :chatrooms
   has_many :claps, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :scorings, dependent: :destroy

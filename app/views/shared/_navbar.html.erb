@@ -20,7 +20,7 @@
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Mon Profil", profile_user_path, class: "dropdown-item" %>
             <%= link_to "Mes Listes", user_lists_path, class: "dropdown-item" %>
-            <%= link_to "Mes Messages", "#", class: "dropdown-item" %>
+            <%= link_to "Mes Messages", chatrooms_path, class: "dropdown-item" %>
             <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>

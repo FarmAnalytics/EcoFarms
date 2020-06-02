@@ -26,8 +26,13 @@ Rails.application.routes.draw do
       resources :lists, only: [:index, :show]
   end 
 
+  resources :chatrooms, only: [:index, :show] do 
+    resources :messages, only: [ :create ]
+  end
+
   resources :shops, only: [ :show, :edit ]
 
   resources :lists, only: [ :create, :destroy ]
+
 
 end

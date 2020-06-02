@@ -7,12 +7,30 @@ class ListsController < ApplicationController
   end
 
   def create
-    @user = current_user
-    @shop = Shop.where(user_id: @user.id).first
-    @list = List.new
-    @list.name = params[:list][:name]
+    @shop = Shop.where(user_id: current_user.id).first
+    authorize @shop
+    @list = List.new(list_params)
+
     @list.shop = @shop
-    @list.save
+    if @list.save
+      flash[:notice] = "Votre liste a été créée"
+      redirect_to user_lists_path
+    else
+      render :new
+    end
+  end
+
+  def destroy
+    @list = List.find(params[:id])
+    authorize @list
+    @list.destroy
+    redirect_to user_lists_path
+  end
+
+  private
+
+  def list_params
+    params.require(:list).permit(:name)
   end
 
 end

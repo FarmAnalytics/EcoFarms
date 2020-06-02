@@ -16,6 +16,7 @@
         <%= f.input :last_name, input_html: { value: f.object.last_name }, disabled: true %>
         <%= f.input :email, input_html: { value: f.object.email }, disabled: true %>
         <%= f.input :phone_number, input_html: { value: f.object.phone_number }, disabled: true %>
+        <%= f.input :photo, as: :file, input_html: { value: f.object.phone_number }, disabled: true  %>
     <% end %>
 </div>
 

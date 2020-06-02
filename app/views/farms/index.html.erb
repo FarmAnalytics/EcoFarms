@@ -1,29 +1,26 @@
-<div class="bg-primary p-2">
+<div class="bg-primary px-2 py-5">
   <div class="container ">
     <div class="banner-home row justify-content-between">
         <div class="search col-6">
-          <h2 class='text-white my-4'>Trouvez un producteur en accord avec vos valeurs</h2>
+          <h2 class='text-white my-5'>Trouvez un producteur en accord avec vos valeurs</h2>
           <%= simple_form_for :search, url: farms_path + '#map', method: :get do |f| %>
 
             <div class="search-form-control form-group">
               <input class="border border-success form-control string required" type="text" name="query" id="search_query" placeholder='Où habitez-vous?' />
             </div>
 
-            <h5 class='text-white m-2'>Quel type de produit cherchez-vous ?</h5>
+            <h5 class='text-white mt-4 mb-3'>Quel type de produit cherchez-vous ?</h5>
 
-            <div class="row m-auto">
 
-              <div class="container-fluid btn-group-toggle justify-content-between" data-toggle="buttons">
-              
+              <div class="row m-auto mb-3 justify-content-between btn-group-toggle" data-toggle="buttons">
                 <% @tags.each do |tag| %>
-                  <label class="btn btn-outline-success bg-white col-2" for="<% tag %>">
-                    <input type="checkbox" name="tag[]" id="<%=tag%>" value="<%=tag%>">
-                    <i class="fas fa-carrot"></i>
-                    <p class="mb-0"><%= tag  %></p>
-                  </label>
-                <% end %>
-
+                  <label class="btn text-white border rounded col-2 py-2 text-center" for="<%=tag%>">
+                    <input type="checkbox" name="tag[]" data-toggle="button" id="<%=tag%>" value="<%=tag%>">
+                    <p class='m-0'><%= tag %></p>
+                   </label>
+               <% end %>
               </div>
+
               <%# <button type="button" class="btn btn-outline-success bg-white col-2">
                 <i class="fas fa-carrot"></i>
                 <p class="mb-0">Légumes</p>
@@ -46,10 +43,8 @@
               </button> %>
 
               <button type="submit" class="btn btn-success text-white my-4">
-                <i class="fas fa-search"></i>
-                Trouver mon producteur
+                <h5 class="m-2"><i class="fas fa-search"></i> Trouver mon producteur</h5>
               </button>
-            </div>
           <% end %>
         </div>
         <div class='col-6 justify-content-center'>
@@ -60,7 +55,7 @@
 </div>
 
 <div id="map"
-    style="width: 100%; height: 100vh;"
+    style="width: 100%; height: 600px;"
     data-markers="<%= @markers.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
     data-latitude="<%= Geocoder.search(params[:query]).first.latitude if (!params[:query].nil? && params[:query]!="") %>"

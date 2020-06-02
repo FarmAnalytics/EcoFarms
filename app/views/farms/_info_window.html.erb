@@ -1,17 +1,19 @@
-<div class="farm-card text-primary">
+<div class="farm-card text-white text-center">
     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
+      <span class='text-white'>&times;</span>
     </button>
     <div class='p-3'>
       <h1><%= farm.name %></h1>
       <h6><%= farm.address %></h6>
     </div>
-  <% if farm.photos.attached? %>
-    <%= cl_image_tag photos.first.key, height: 200, width:300, style: "width: 100%", crop: :fill, class: 'rounded-sm' %>
-  <% else %>
-    <%= image_tag "https://images.unsplash.com/photo-1444858291040-58f756a3bdd6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1530&q=80", height: 200, width:300, style: "width: 100%", crop: :fill, class: 'rounded-sm' %>
-  <% end %>  
-  <div class="farm-infos text-primary text-center">
+    <div class="text-center">
+      <% if farm.photos.attached? %>
+        <%= cl_image_tag photos.first.key, height: 200, width:300, style: "width: 90%", crop: :fill, class: 'rounded' %>
+      <% else %>
+        <%= image_tag "https://images.unsplash.com/photo-1444858291040-58f756a3bdd6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1530&q=80", height: 200, width:300, style: "width: 90%", crop: :fill, class: 'rounded' %>
+      <% end %>  
+    </div>
+  <div class="farm-infos text-white text-center">
     <div class="sc-gauge-card text-center">
       <div class="sc-background-card mb-3">
         <div class="sc-percentage-card" style="transform: rotate(<%= farm.total * 1.8 %>deg);"></div>
@@ -20,8 +22,8 @@
       </div>
     </div>
     <h5>Indice de performance</h5>
-  </div>
-  <div class='text-center'>
-    <%= link_to "Voir cette ferme", farm_path(farm), class: "btn btn-danger text-white" %>
+    <div class='text-center' id="button-card">
+      <%= link_to "Voir cette ferme", farm_path(farm), class: "btn btn-success text-white" %>
+    </div>
   </div>
 

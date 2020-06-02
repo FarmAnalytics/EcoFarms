@@ -21,7 +21,7 @@
           <td><%= Shop.find(list.shop_id).address %></td>
           <td><%= list.private ? "private" : "public"%></td>
           <td>
-            <%= link_to list_path(list), method: :delete do %>
+            <%= link_to list_path(list), method: :delete, remote: true do %>
               <i class="mr-2 fas fa-trash-alt"></i>
             <% end %>
           </td>

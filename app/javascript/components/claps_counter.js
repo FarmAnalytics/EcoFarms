@@ -3,25 +3,21 @@ import Rails from "@rails/ujs";
 const onClapButtonClick = event => {
   event.preventDefault();
   const form = document.querySelector(".formclapbutton");
+  console.log(form);
+  form.addEventListener('ajax:success', (event) => {
+    updateCount(event.detail[0].clap_count);
+  })
   Rails.fire(form, "submit");
 };
 
-const updateCount = () => {
-  fetch(window.location.href + "/count_clap", {
-    headers: { accept: "application/json" }
-  })
-    .then(response => response.json())
-    .then(data => {
-      const counter = document.querySelector(".rating-num");
-      counter.innerHTML = data.clapsCount;
-    });
+const updateCount = (count) => {
+  const counter = document.querySelector(".rating-num");
+  counter.innerHTML = count;
 };
 
 const countClaps = () => {
   const clapButton = document.querySelector(".clapbutton");
   clapButton.addEventListener("click", onClapButtonClick);
-
-  setInterval(updateCount, 1500);
 };
 
 const initClapsCounter = () => {

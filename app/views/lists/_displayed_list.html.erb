@@ -11,6 +11,7 @@
           <th class="text-center">Note sociale</th>
           <th class="text-center">Note environnementale</th>
           <th class="text-center">Note économique</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -22,6 +23,11 @@
           <td class="text-center"><%= Farm.find(like.farm_id).average("Social") %></td>
           <td class="text-center"><%= Farm.find(like.farm_id).average("Économique") %></td>
           <td class="text-center"><%= Farm.find(like.farm_id).average("Environnemental") %></td>
+          <td>
+            <%= link_to like_path(like), method: :delete, remote: true do %>
+              <i class="mr-2 fas fa-trash-alt"></i>
+            <% end %>
+          </td>
         </tr>
         <% end %>
       </tbody>

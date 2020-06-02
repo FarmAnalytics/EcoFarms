@@ -9,6 +9,7 @@
         <% end %>
     </div>
 </div>
+
 <div id="user-form-disabled">
     <%= simple_form_for @user, url: user_path, method: :patch do |f| %>
         <%= f.input :first_name, input_html: { value: f.object.first_name }, disabled: true %>
@@ -17,14 +18,25 @@
         <%= f.input :phone_number, input_html: { value: f.object.phone_number }, disabled: true %>
     <% end %>
 </div>
+
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
     <h1 class="h2">Mes établissements</h1>
-    <button id='modify-shop' type="submit" class="btn btn-success text-white my-4">
-      <i class="fas fa-edit"></i> Modifier
-    </button>
+    <div class="d-flex">
+        <a href="#" type="button" class="btn btn-success text-white my-4" data-toggle="modal" data-target="#shopmodal">
+            <i class="far fa-plus-square"></i> Ajouter
+        </a>
+        <button id='modify-shop' type="submit" class="btn btn-success text-white my-4 ml-3">
+            <i class="fas fa-edit"></i> Modifier
+        </button>
+    </div>
 </div>
+
+<%= render 'shop_modal' %>
+
+<div class="mb-5">
 <% @shops.each do |shop| %>
     <%= simple_form_for(shop) do |f| %>
         <%= f.input :address, input_html: { value: f.object.address }, disabled: true %>
     <% end %>
 <% end %>
+</div>

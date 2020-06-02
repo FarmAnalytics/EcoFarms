@@ -2,8 +2,9 @@ class UsersController < ApplicationController
 
   def profile
     @user = current_user
-    @shops = Shop.where(user: current_user.id)
     authorize @user
+    @shops = Shop.where(user: current_user.id)
+    @shop = Shop.new
   end  
 
   def update

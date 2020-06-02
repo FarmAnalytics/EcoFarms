@@ -18,10 +18,10 @@
             <%= image_tag "https://www.dts.edu/wp-content/uploads/sites/6/2018/04/Blank-Profile-Picture.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% end %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Mon Profil", profile_user_path, class: "dropdown-item" %>
-            <%= link_to "Mes Listes", user_lists_path, class: "dropdown-item" %>
-            <%= link_to "Mes Messages", "#", class: "dropdown-item" %>
-            <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            <%= link_to "Mon Profil", profile_user_path, class: "dropdown-item text-body" %>
+            <%= link_to "Mes Listes", user_lists_path, class: "dropdown-item text-body" %>
+            <%= link_to "Mes Messages", "#", class: "dropdown-item text-body" %>
+            <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "dropdown-item text-body" %>
           </div>
         </li>
       <% else %>

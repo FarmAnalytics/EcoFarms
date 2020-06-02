@@ -66,10 +66,12 @@
 .nav-item a {
   color: lightgrey;
   :hover {
-    color: white
+    color: #f6a030;
   }
 }
 
-.nav-link.active {
-  background-color: white !important;
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+  color: #495057;
+  background-color: white;
+  border-color: white;
 }

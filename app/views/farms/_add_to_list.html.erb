@@ -5,7 +5,6 @@
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
   <% @wish_lists.each do |list| %>
     <%= link_to list.name, farm_likes_path(@farm, params_list: list), class: "dropdown-item", method: :post %>
-    <%# remote: true %>
   <% end %>
     <!-- Button trigger modal -->
     <a href="#" type="button" class="btn btn-primary dropdown-item" data-toggle="modal" data-target="#listmodal">Créer une nouvelle liste</a>

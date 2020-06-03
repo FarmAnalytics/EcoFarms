@@ -6,7 +6,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'csv'
 
-puts 'Cleaning database...'
+puts "\nCleaning database..."
 
 Farm.destroy_all
 User.destroy_all
@@ -14,6 +14,8 @@ Category.destroy_all
 Criterion.destroy_all
 Scoring.destroy_all
 Clap.destroy_all
+
+puts 'Database is clean as a whistle'
 
 
 puts "\nCreating categories ..."
@@ -54,7 +56,7 @@ global = Category.new(
 global.save!
 puts "The \"#{global.name}\" category has been created"
 
-puts 'categories have been created'
+puts 'Categories have been created'
 
 
 puts "\nParsing the csv..."
@@ -111,7 +113,7 @@ CSV.foreach('db/seeds.csv') do |row|
 
   user = User.new(
     email: row[11], 
-    password: random_password(length=10))
+    password: random_password(length=10) )
   user.first_name = ['Martin', 'Sylvie', 'Boris', 'Fred', 'Nina'].sample
   user.last_name = ['Mauriac', 'Dupont', 'Le Floc', 'Basin', 'Vazyvaza'].sample
   user.phone_number = '06 22 55 40 68'
@@ -321,9 +323,19 @@ CSV.foreach('db/seeds.csv') do |row|
   viaeco_scoring.save!
 end
 
+superuser = User.new(
+  email: "mauriac@biocoop.com", 
+  password: "123456",
+  admin: true )
+superuser.first_name = 'Marcel'
+superuser.last_name = 'Mauriac'
+superuser.phone_number = '02 38 46 94 45'
+superuser.save!
+
 puts "Users and Farms have been created"
 
-puts "Insert Lists and Shops"
+
+puts "\nInserting Lists and Shops ..."
 
 User.all.each do |user| 
   magazin = Shop.new
@@ -338,7 +350,10 @@ User.all.each do |user|
   end
 end
 
-puts "Insert Likes"
+puts "Lists and Shops created"
+
+
+puts "\nInserting Likes ..."
 
 List.all.each do |liste| 
   (1..10).to_a.sample.times do
@@ -349,7 +364,10 @@ List.all.each do |liste|
   end
 end
 
-puts "\nCreating claps ..."
+puts "Likes created"
+
+
+puts "\nCreating Claps ..."
 
 20.times do 
   clap = Clap.new
@@ -358,9 +376,10 @@ puts "\nCreating claps ..."
   clap.save!
 end
   
-puts "#{Clap.count} claps created"
+puts "#{Clap.count} Claps created"
 
-puts "Creating tags on farms ..."
+
+puts "\nCreating Tags on farms ..."
 
 tab_tag = ['Légumes', 'Fruits', 'Viande', 'Crèmerie', 'Vin']
 
@@ -373,7 +392,8 @@ end
   
 puts "Tags added"
 
-puts "Add chatrooms ..."
+
+puts "\nAdding chatrooms and messages ..."
 
 User.all.each do |u| 
     discut = Chatroom.new()
@@ -392,8 +412,6 @@ User.all.each do |u|
     mes2.save!
 end
 
-puts "Add messages ..."
-
-
+puts "Chatrooms and messages added"
 
 puts "\nFinished!"

@@ -1,8 +1,11 @@
 <div class="bg-primary text-white">
   <div class="pt-5 container">
     <div class="row no-gutters flex-md-row">
-      <div class="col-8">
-        <h2><%= @farm.name %></h2>
+      <div class="col-8 pr-5">
+        <div class="d-flex">
+          <h2><%= @farm.name %></h2>
+          <a href="https://<%= @farm.url %>" target="_blank" class="text-white btn"><i class="fas fa-link"></i></a>
+        </div>
         <p class="lead my-3"><%= @farm.sector %></p>
         <div class="card-text">
           <p class="m-0"><%= @farm.description %></p>
@@ -40,9 +43,12 @@
       <div class="sc-background mb-3">
         <div class="sc-percentage" style="transform: rotate(<%= @farm.total * 1.8 %>deg);"></div>
         <div class="sc-mask"></div>
-        <span class="sc-value"><%= @farm.total %> %</span>
+        <span class="sc-value">
+          <%= @farm.total %>
+          <h5 class="d-inline">%</h5>
+        </span>
       </div>
-      <h6 class="sc-indice">Indice de performance</h6>
+      <h6 class="sc-indice">Performances globales</h6>
     </div>
     <ul class="nav nav-tabs row col-8 pr-0" id="myTab" role="tablist">
       <li class="nav-item col-3">

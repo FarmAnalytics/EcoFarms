@@ -3,6 +3,10 @@
   font-size: 24px;
 }
 
+.clapbutton:hover {
+  color: $success!important;
+}
+
 .sc-gauge  {
   width:200px;
   margin: 0 auto;

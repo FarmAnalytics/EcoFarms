@@ -327,8 +327,9 @@ superuser = User.new(
   email: "mauriac@biocoop.com", 
   password: "123456",
   admin: true )
-superuser.first_name = ['Marcel']
-superuser.last_name = ['Mauriac']
+superuser.first_name = 'Marcel'
+superuser.last_name = 'Mauriac'
+superuser.phone_number = '02 38 46 94 45'
 superuser.save!
 
 puts "Users and Farms have been created"

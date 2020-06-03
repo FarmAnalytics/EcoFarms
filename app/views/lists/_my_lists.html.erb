@@ -1,6 +1,6 @@
 <div class='d-flex my-3'>
   <% @lists.each do |list| %>
-    <div class="d-flex shadow-sm border rounded bg-white col-3 mr-2 text-left p-0">
+    <div class="d-flex shadow-sm btn border rounded bg-white col-3 mr-2 text-left p-0">
       <a id='list' class="tablinks listTrigger col-10 py-3" data-target="<%= list.name%>" >
         <h5 class='text-primary'><%= list.name %></h5>
         <div class="d-flex justify-content-between">

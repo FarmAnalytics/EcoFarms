@@ -373,7 +373,26 @@ end
   
 puts "Tags added"
 
+puts "Add chatrooms ..."
 
+User.all.each do |u| 
+    discut = Chatroom.new()
+    discut.user_id = u.id
+    discut.farm_id = Farm.all.sample.id
+    discut.save!
+    mes1 = Message.new()
+    mes1.chatroom_id = discut.id
+    mes1.user_id = u.id
+    mes1.content = "Bonjour, comment allez-vous ? J'ai vu vos produits sur Ecofarms et j'aimerais travailler avec vous"
+    mes1.save!
+    mes2 = Message.new()
+    mes2.chatroom_id = discut.id
+    mes2.user_id = u.id
+    mes2.content = "Merci pour votre message vocal."
+    mes2.save!
+end
+
+puts "Add messages ..."
 
 
 

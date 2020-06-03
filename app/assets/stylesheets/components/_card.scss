@@ -8,12 +8,14 @@
 
 .farm-card {
   overflow: hidden;
-  height: 100%;
-  width: 300px;
-  background: $white !important;
+  height: 93%;
+  width: 280px;
+  background: $primary !important;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   position: absolute !important;
-  right: 0px;
+  right: 20px;
+  top: 15px;
+  border-radius: 5px;
 
 }
 
@@ -62,7 +64,7 @@
   right:10px;
   left:10px;
   height:40px;
-  background: white !important;
+  background: $primary !important;
   border-radius: 150px 150px 0 0;
 }
 
@@ -87,5 +89,4 @@
   left:0;
   width: 100%;
 }
-
 

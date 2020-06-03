@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
 
-  <%= link_to root_path, class: "navbar-brand bg-transparent" do %>
+  <%= link_to farms_path, class: "navbar-brand bg-transparent" do %>
     <%= image_tag "ecofarms_logo.png" %>
   <% end %>
 
@@ -20,7 +20,7 @@
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Mon Profil", profile_user_path, class: "dropdown-item text-body" %>
             <%= link_to "Mes Listes", user_lists_path, class: "dropdown-item text-body" %>
-            <%= link_to "Mes Messages", "#", class: "dropdown-item text-body" %>
+            <%= link_to "Mes Messages", chatrooms_path, class: "dropdown-item text-body" %>
             <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "dropdown-item text-body" %>
           </div>
         </li>

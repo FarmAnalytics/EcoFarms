@@ -1,6 +1,6 @@
 <div class='row my-3'>
   <% @lists.each do |list| %>
-    <a class="tablinks listTrigger border rounded bg-white col-3 mr-2 text-left p-3" data-target="<%= list.name%>" >
+    <a id='list' class="tablinks shadow-sm listTrigger border rounded bg-white col-3 mr-2 text-left p-3" data-target="<%= list.name%>" >
         <h5 class='text-primary'><%= list.name %></h5>
         <div class="d-flex justify-content-between">
           <p class='text-warning'><em><%= list.shop.address %></em></p>
@@ -36,13 +36,13 @@
               <%# <i class="btn-sm btn-outline-success fas fa-plus"></i>
             </a>
           </td>
-          <td><%= list.name %></td>
-          <td><%= Shop.find(list.shop_id).address %></td>
-          <td><%= list.private ? "private" : "public"%></td>
-          <td>
-            <%= link_to list_path(list), method: :delete, remote: true do %>
-              <i class="mr-2 fas fa-trash-alt"></i>
-            <% end %>
+          <td><%= list.name</td> %>
+          <%# <td><%= Shop.find(list.shop_id).address</td> %>
+          <%# <td><%= list.private ? "private" : "public"</td> %>
+          <%# <td> %>
+            <%# <%= link_to list_path(list), method: :delete, remote: true do %>
+              <%# <i class="mr-2 fas fa-trash-alt"></i> %>
+            <%# <% end %>
           <%# </td>
         </tr> %>
       <%# <% end %>

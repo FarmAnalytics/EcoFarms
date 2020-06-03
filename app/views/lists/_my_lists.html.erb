@@ -2,6 +2,13 @@
   <% @lists.each do |list| %>
     <a class="tablinks listTrigger border rounded bg-white col-3 mr-2 text-left p-3" data-target="<%= list.name%>" >
         <h5 class='text-primary'><%= list.name %></h5>
+        <td><%= Shop.find(list.shop_id).address %></td>
+          <td><%= list.private ? "private" : "public"%></td>
+          <td>
+            <%= link_to list_path(list), method: :delete, remote: true do %>
+              <i class="mr-2 fas fa-trash-alt"></i>
+            <% end %>
+          </td>
         <div class="d-flex justify-content-between">
           <p class='text-warning'><em><%= list.shop.address %></em></p>
           <div class='text-success'>
@@ -36,15 +43,15 @@
               <%# <i class="btn-sm btn-outline-success fas fa-plus"></i>
             </a>
           </td>
-          <td><%= list.name %></td>
-          <td><%= Shop.find(list.shop_id).address %></td>
-          <td><%= list.private ? "private" : "public"%></td>
-          <td>
-            <%= link_to list_path(list), method: :delete, remote: true do %>
-              <i class="mr-2 fas fa-trash-alt"></i>
-            <% end %>
-          <%# </td>
-        </tr> %>
+          <td><%= list.name %>
+          <%# <td><%= Shop.find(list.shop_id).address %>
+          <%# <td><%= list.private ? "private" : "public"%>
+          <%# <td> %>
+            <%# <%= link_to list_path(list), method: :delete, remote: true do %>
+              <%# <i class="mr-2 fas fa-trash-alt"></i> %>
+            <%# <% end %>
+          <%# </td> %>
+        <%# </tr> %>
       <%# <% end %>
     <%# </tbody>
   </table>

@@ -1,5 +1,5 @@
-<div class="bg-primary p-5 text-white">
-  <div class="container">
+<div class="bg-primary text-white">
+  <div class="pt-5 container">
     <div class="row no-gutters flex-md-row">
       <div class="col-8">
         <h2><%= @farm.name %></h2>
@@ -7,7 +7,7 @@
         <div class="card-text">
           <p class="m-0"><%= @farm.description %></p>
         </div>
-        <div class="d-flex">
+        <div class="d-flex mt-4">
           <%= render 'claps' %>
           <%= render 'add_to_list' %>
         </div>
@@ -35,88 +35,84 @@
       </div>
     </div>
   </div>
-  <div class="bg-primary">
-    <div class="container d-flex">
-      <div class="sc-gauge text-center col-4">
-        <div class="sc-background mb-3">
-          <div class="sc-percentage" style="transform: rotate(<%= @farm.total * 1.8 %>deg);"></div>
-          <div class="sc-mask"></div>
-          <span class="sc-value"><%= @farm.total %> %</span>
-        </div>
-        <h6 class="sc-indice">Indice de performance</h6>
+  <div class="container d-flex mt-5">
+    <div class="sc-gauge text-center col-4">
+      <div class="sc-background mb-3">
+        <div class="sc-percentage" style="transform: rotate(<%= @farm.total * 1.8 %>deg);"></div>
+        <div class="sc-mask"></div>
+        <span class="sc-value"><%= @farm.total %> %</span>
       </div>
-
-      <ul class="nav nav-tabs row col-8 pr-0" id="myTab" role="tablist">
-        <li class="nav-item col-3">
-          <a class="nav-link active" id="env-tab" data-toggle="tab" href="#env" role="tab" aria-controls="env" aria-selected="true">
-            <div class="pt-3 px-3 text-center">
-              <div class="h1 m-0">
-                <%= @farm.average("Environnemental") %>
-              </div>
-              <div class="text-muted py-2">
-                <i class="fab fa-envira"></i>
-                <p class='m-0'>Environnement</p>
-              </div>
-            </div>
-          </a>
-        </li>
-        <li class="nav-item col-3">
-          <a class="nav-link" id="social-tab" data-toggle="tab" href="#social" role="tab" aria-controls="social" aria-selected="false">
-            <div class="pt-3 px-3 text-center">
-              <div class="h1 m-0">
-                <%= @farm.average("Social") %>
-              </div>
-              <div class="text-muted py-2">
-              <i class="fas fa-industry"></i>
-              <p class='m-0'>Social</p>
-              </div>
-            </div>
-          </a>
-        </li>
-        <li class="nav-item col-3">
-          <a class="nav-link" id="eco-tab" data-toggle="tab" href="#eco" role="tab" aria-controls="eco" aria-selected="false">
-          <div class="pt-3 px-3 text-center">
-              <div class="h1 m-0">
-                <%= @farm.average("Économique") %>
-              </div>
-              <div class="text-muted py-2">
-                <i class="fas fa-euro-sign"></i>
-                <p class='m-0'>Economie</p>
-              </div>
-            </div>
-          </a>
-        </li>
-        <li class="nav-item col-3 pr-0">
-          <a class="nav-link" id="globale-tab" data-toggle="tab" href="#globale" role="tab" aria-controls="globale" aria-selected="false">
-            <div class="pt-3 px-3 text-center">
-              <div class="h1 m-0">
-                <%= @farm.average("Global") %>
-              </div>
-              <div class="text-muted py-2">
-              <i class="fas fa-tractor"></i>    
-              <p class='m-0'>Autre</p>
-              </div>
-            </div>
-          </a>
-        </li>
-      </ul>
+      <h6 class="sc-indice">Indice de performance</h6>
     </div>
+    <ul class="nav nav-tabs row col-8 pr-0" id="myTab" role="tablist">
+      <li class="nav-item col-3">
+        <a class="nav-link active" id="env-tab" data-toggle="tab" href="#env" role="tab" aria-controls="env" aria-selected="true">
+          <div class="pt-3 px-3 text-center">
+            <div class="h1 m-0">
+              <%= @farm.average("Environnemental") %>
+            </div>
+            <div class="text-muted py-2">
+              <i class="fab fa-envira"></i>
+              <p class="m-0 d-flex justify-content-center">Environnement</p>
+            </div>
+          </div>
+        </a>
+      </li>
+      <li class="nav-item col-3">
+        <a class="nav-link" id="social-tab" data-toggle="tab" href="#social" role="tab" aria-controls="social" aria-selected="false">
+          <div class="pt-3 px-3 text-center">
+            <div class="h1 m-0">
+              <%= @farm.average("Social") %>
+            </div>
+            <div class="text-muted py-2">
+            <i class="fas fa-industry"></i>
+            <p class="m-0 d-flex justify-content-center">Social</p>
+            </div>
+          </div>
+        </a>
+      </li>
+      <li class="nav-item col-3">
+        <a class="nav-link" id="eco-tab" data-toggle="tab" href="#eco" role="tab" aria-controls="eco" aria-selected="false">
+        <div class="pt-3 px-3 text-center">
+            <div class="h1 m-0">
+              <%= @farm.average("Économique") %>
+            </div>
+            <div class="text-muted py-2">
+              <i class="fas fa-euro-sign"></i>
+              <p class="m-0 d-flex justify-content-center">Economie</p>
+            </div>
+          </div>
+        </a>
+      </li>
+      <li class="nav-item col-3 pr-0">
+        <a class="nav-link" id="globale-tab" data-toggle="tab" href="#globale" role="tab" aria-controls="globale" aria-selected="false">
+          <div class="pt-3 px-3 text-center">
+            <div class="h1 m-0">
+              <%= @farm.average("Global") %>
+            </div>
+            <div class="text-muted py-2">
+            <i class="fas fa-tractor"></i>    
+            <p class="m-0 d-flex justify-content-center">Autre</p>
+            </div>
+          </div>
+        </a>
+      </li>
+    </ul>
   </div>
-
-  <div class="container p-0">
-    <div class="tab-content border border-top-0 rounded-bottom mb-5" id="myTabContent">
-      <div class="tab-pane fade show active" id="env" role="tabpanel" aria-labelledby="env-tab">
-        <%= render 'rating', zone: "Environnemental" %>
-      </div>
-      <div class="tab-pane fade" id="social" role="tabpanel" aria-labelledby="social-tab">
-        <%= render 'rating', zone: "Social" %>
-      </div>
-      <div class="tab-pane fade" id="eco" role="tabpanel" aria-labelledby="eco-tab">
-        <%= render 'rating', zone: "Économique" %>
-      </div>
-      <div class="tab-pane fade" id="globale" role="tabpanel" aria-labelledby="globale-tab">
-          <%= render 'rating', zone: "Global" %>
-      </div>
+</div>
+<div class="container p-0">
+  <div class="tab-content border border-top-0 rounded-bottom mb-5" id="myTabContent">
+    <div class="tab-pane fade show active" id="env" role="tabpanel" aria-labelledby="env-tab">
+      <%= render 'rating', zone: "Environnemental" %>
+    </div>
+    <div class="tab-pane fade" id="social" role="tabpanel" aria-labelledby="social-tab">
+      <%= render 'rating', zone: "Social" %>
+    </div>
+    <div class="tab-pane fade" id="eco" role="tabpanel" aria-labelledby="eco-tab">
+      <%= render 'rating', zone: "Économique" %>
+    </div>
+    <div class="tab-pane fade" id="globale" role="tabpanel" aria-labelledby="globale-tab">
+        <%= render 'rating', zone: "Global" %>
     </div>
   </div>
 </div>

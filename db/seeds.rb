@@ -6,7 +6,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'csv'
 
-puts '\nCleaning database...'
+puts "\nCleaning database..."
 
 Farm.destroy_all
 User.destroy_all

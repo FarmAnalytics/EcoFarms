@@ -17,7 +17,7 @@
       <tbody data-target='sort-table.body'>
         <% Like.where(list_id: list.id).each do |like| %>
         <tr>
-          <td><%= Farm.find(like.farm_id).name %></td>
+          <td><%= link_to Farm.find(like.farm_id).name, farm_path(Farm.find(like.farm_id)) %></td>
           <td class="text-center"><%= Farm.find(like.farm_id).total %></td>
           <td class="text-center"><%= Farm.find(like.farm_id).average("Global") %></td>
           <td class="text-center"><%= Farm.find(like.farm_id).average("Social") %></td>

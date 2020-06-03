@@ -7,10 +7,10 @@ class ListsController < ApplicationController
   end
 
   def create
+    skip_authorization
     @shop = Shop.where(user_id: current_user.id).first
-    authorize @shop
+    #authorize @shop
     @list = List.new(list_params)
-
     @list.shop = @shop
     if @list.save
       flash[:notice] = "Votre liste a été créée"

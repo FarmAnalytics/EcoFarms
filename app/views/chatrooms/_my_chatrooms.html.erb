@@ -1,0 +1,27 @@
+<div class='d-flex my-3'>
+  <% @chatrooms.each do |chatroom| %>
+    <div class="d-flex shadow-sm border rounded bg-white col-3 mr-2 text-left p-0">
+      <div class="col-10 py-3" >
+        <h5 class='text-primary'><%= "Chat avec " + chatroom.farm.name %></h5>
+        <div class="d-flex justify-content-between">
+          <div class='text-success'>
+              <%= link_to chatroom_path(chatroom) do %>
+              <i class="fas fa-eye"></i>
+              <% end %>
+          </div>
+        </div>
+      </div>
+      <%= link_to chatroom_path(chatroom), method: :delete, remote: true do %>
+        <span class="btn col-2">×</span>
+      <% end %>
+    </div>
+  <% end %>
+  <div class="d-flex shadow-sm border rounded bg-white col-3 mr-2 text-left p-0">
+      <a id='list' class="col-10 py-3" data-target="start" >
+        <h5 class='text-primary'>Démarrer une nouvelle conversation</h5>
+      </a>
+      <%= link_to chatrooms_path(), remote: true do %>
+        <span class="btn col-2">+</span>
+      <% end %>
+  </div>
+</div>

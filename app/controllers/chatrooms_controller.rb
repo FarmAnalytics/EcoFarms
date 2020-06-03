@@ -8,7 +8,9 @@ class ChatroomsController < ApplicationController
 
   def show
     skip_authorization
-    @chatroom = Chatroom.find(params[:id])
+    @user = current_user
+    @chatrooms = policy_scope(Chatroom).where(user_id: @user.id)
+    @chatroom_first = Chatroom.find(params[:id])
     @message = Message.new
     # @messages = Message.where(chatroom_id: @chatroom.id)
     # raise

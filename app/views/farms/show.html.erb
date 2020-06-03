@@ -1,3 +1,7 @@
+<% content_for :meta_title, "#{@farm.name} is on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @farm.description %>
+<%# <% content_for :meta_image, cl_image_path(@farm.photos.first.path) %>
+
 <div class="bg-primary text-white">
   <div class="pt-5 container">
     <div class="row no-gutters flex-md-row">

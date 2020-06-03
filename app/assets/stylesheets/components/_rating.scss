@@ -6,16 +6,18 @@
 .sc-gauge  {
   width:200px;
   margin: 0 auto;
+  bottom: 5px;
 }
 
 .sc-background {
-  position:relative;
-  height:100px;
-  margin-bottom:10px;
+  position: relative;
+  height: 100px;
+  width: 200px;
+  margin: auto;
   background-color:#fff;
   border-radius:150px 150px 0 0;
-  overflow:hidden;
-  text-align:center;
+  overflow: hidden;
+  text-align: center;
 }
 
 .sc-mask {
@@ -45,10 +47,15 @@
 
 .sc-value {
   position: absolute;
-  top: 50%;
+  top: 45%;
   left:0;
   width: 100%;
   font-size: 45px;
+  color: white;
+}
+
+.sc-indice {
+  color: white;
 }
 
 .progress {
@@ -61,17 +68,4 @@
 
 .progress-bar-2 {
   background: lightgrey;
-}
-
-.nav-item a {
-  color: lightgrey;
-  :hover {
-    color: #f6a030;
-  }
-}
-
-.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
-  color: #495057;
-  background-color: white;
-  border-color: white;
 }

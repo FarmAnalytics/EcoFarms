@@ -1,6 +1,6 @@
 <div class='row my-3'>
   <% @lists.each do |list| %>
-    <a class="tablinks listTrigger border rounded bg-white col-3 mr-2 text-left p-3" data-target="<%= list.name%>" >
+    <a id='list' class="tablinks shadow-sm listTrigger border rounded bg-white col-3 mr-2 text-left p-3" data-target="<%= list.name%>" >
         <h5 class='text-primary'><%= list.name %></h5>
         <td><%= Shop.find(list.shop_id).address %></td>
           <td><%= list.private ? "private" : "public"%></td>
@@ -43,7 +43,7 @@
               <%# <i class="btn-sm btn-outline-success fas fa-plus"></i>
             </a>
           </td>
-          <td><%= list.name %>
+          <%# <td><%= list.name %>
           <%# <td><%= Shop.find(list.shop_id).address %>
           <%# <td><%= list.private ? "private" : "public"%>
           <%# <td> %>

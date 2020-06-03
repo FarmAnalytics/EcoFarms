@@ -1,12 +1,9 @@
 <p class="rating-num">
   <%= Clap.where(farm_id: params[:id]).count %>
 </p>
-<div class="align-self-center">
-  <i class="fas fa-sign-language ml-2 fa-2x"></i>
-</div>
-<%# <a class="btn btn-success text-white ml-3" href="#">
-  Clap
-</a> %>
+
 <%= simple_form_for [ @farm, @clap ], remote: true, html: {class: "formclapbutton"} do |f| %>
-  <%= f.submit 'Clap', class: "btn btn-success text-white ml-3 clapbutton"%>
+  <i class="btn text-white fas fa-sign-language fa-2x pt-0 clapbutton">
+    <% f.submit %>
+  </i>
 <% end %>

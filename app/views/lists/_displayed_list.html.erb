@@ -1,33 +1,30 @@
 <% @lists.each do |list| %>
 <div id="<%= list.name %>" class="tabcontent">
   <h3 class="py-3"><%= list.name %></h3>
-  <div class="table-responsive">
-    <table class="table table-striped table-sm" data-controller='sort-table'>
+  <div class="table-responsive border rounded bg-white mb-4 shadow-sm text-primary">
+    <table class="table table-striped" data-controller='sort-table'>
       <thead>
         <tr>
-          <th>Name</th>
-          <th class="text-center" data-target='sort-table.general' data-action='click->sort-table#sort'>Score générale</th>
-          <th class="text-center" data-target='sort-table.propriete' data-action='click->sort-table#sort'>Note global</th>
-          <th class="text-center" data-target='sort-table.social' data-action='click->sort-table#sort'>Note sociale</th>
-          <th class="text-center" data-target='sort-table.environnemental' data-action='click->sort-table#sort'>Note environnementale</th>
-          <th class="text-center" data-target='sort-table.eco' data-action='click->sort-table#sort'>Note économique</th>
-          <th></th>
+          <th class="text-left col-2"><em>Ferme</em></th>
+          <th class="text-center col-2" data-id='1' data-action='click->sort-table#sort'><em>Score générale</em></th>
+          <th class="text-center col-2" data-id='2' data-action='click->sort-table#sort'><em>Note globale</em></th>
+          <th class="text-center col-2" data-id='3' data-action='click->sort-table#sort'><em>Note sociale</em></th>
+          <th class="text-center col-2" data-id='4' data-action='click->sort-table#sort'><em>Note environnementale</em></th>
+          <th class="text-center col-2" data-id='5' data-action='click->sort-table#sort'><em>Note économique</em></th>
         </tr>
       </thead>
-      <tbody data-target='sort-table.body'>
-        <% Like.where(list_id: list.id).each do |like| %>
-        <tr>
-          <td><%= Farm.find(like.farm_id).name %></td>
-          <td class="text-center"><%= Farm.find(like.farm_id).total %></td>
-          <td class="text-center"><%= Farm.find(like.farm_id).average("Global") %></td>
-          <td class="text-center"><%= Farm.find(like.farm_id).average("Social") %></td>
-          <td class="text-center"><%= Farm.find(like.farm_id).average("Économique") %></td>
-          <td class="text-center"><%= Farm.find(like.farm_id).average("Environnemental") %></td>
-          <td>
-            <%= link_to like_path(like), method: :delete, remote: true do %>
-              <i class="mr-2 fas fa-trash-alt"></i>
+      <tbody class='my-4 border-bottom' data-target='sort-table.body' data-ordering='descending'>
+        <% list.farms.sort_by { |farm| -farm.total }.each do |farm| %>
+        <tr class='p-2'>
+            <td class="col-2"><%= link_to "#{farm.name}", farm_path(farm), class: 'text-left text-decoration-none p-2 bg-success text-white rounded'%><%= link_to like_path(Like.where(farm_id: farm.id).where(list_id: list.id)), method: :delete, remote: true do %>
+              <i class="mr-2 fas fa-trash-alt">   </i>
             <% end %>
-          </td>
+            </td>
+          <td class="text-center col-2"><%= farm.total %></td>
+          <td class="text-center col-2"><%= farm.average("Global") %></td>
+          <td class="text-center col-2"><%= farm.average("Social") %></td>
+          <td class="text-center col-2"><%= farm.average("Économique") %></td>
+          <td class="text-center col-2"><%= farm.average("Environnemental") %></td>
         </tr>
         <% end %>
       </tbody>

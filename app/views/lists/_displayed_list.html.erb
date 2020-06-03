@@ -1,30 +1,32 @@
 <% @lists.each do |list| %>
 <div id="<%= list.name %>" class="tabcontent">
-  <h3 class="py-3"><%= list.name %></h3>
-  <div class="table-responsive border rounded bg-white mb-4 shadow-sm text-primary">
-    <table class="table table-striped" data-controller='sort-table'>
+  <h3 class="py-3 text-primary"><%= list.name %></h3>
+  <div class="table-responsive border rounded bg-white mb-4 shadow-sm">
+    <table class='table text-primary' data-controller='sort-table'>
       <thead>
         <tr>
-          <th class="text-left col-2"><em>Ferme</em></th>
-          <th class="text-center col-2" data-id='1' data-action='click->sort-table#sort'><em>Score générale</em></th>
-          <th class="text-center col-2" data-id='2' data-action='click->sort-table#sort'><em>Note globale</em></th>
-          <th class="text-center col-2" data-id='3' data-action='click->sort-table#sort'><em>Note sociale</em></th>
-          <th class="text-center col-2" data-id='4' data-action='click->sort-table#sort'><em>Note environnementale</em></th>
-          <th class="text-center col-2" data-id='5' data-action='click->sort-table#sort'><em>Note économique</em></th>
+          <th class="text-left col-3 align-middle"><h6><em>Ferme</em></h6></th>
+          <th class="text-center col-2 px-0"><div data-id='1' data-action='click->sort-table#sort'><h6 class='m-0 btn btn-outline-primary' data-target='sort-table.global'><strong><em>Global</em></strong></h6> <i class="arrow fas fa-arrow-down"></i><i class="arrow d-none fas fa-arrow-up"></i></div></th>
+          <th class="text-center col-1 px-0"><div data-id='2' data-action='click->sort-table#sort'><h6 class='m-0 btn btn-outline-primary' data-target='sort-table.env'><em>Environnement</em></h6> <i class="arrow d-none fas fa-arrow-down"></i><i class="arrow d-none fas fa-arrow-up"></i></div></th>
+          <th class="text-center col-1 px-0"><div data-id='3' data-action='click->sort-table#sort'><h6 class='m-0 btn btn-outline-primary' data-target='sort-table.social'><em>Social</em></h6> <i class="arrow d-none fas fa-arrow-down"></i><i class="arrow d-none fas fa-arrow-up"></i></div></th>
+          <th class="text-center col-1 px-0"><div data-id='4' data-action='click->sort-table#sort'><h6 class='m-0 btn btn-outline-primary' data-target='sort-table.eco'><em>Economie</em></h6> <i class="arrow d-none fas fa-arrow-down"></i><i class="arrow d-none fas fa-arrow-up"></i></div></th>
+          <th class="text-center col-1 px-0"><div data-id='5' data-action='click->sort-table#sort'><h6 class='m-0 btn btn-outline-primary' data-target='sort-table.propriete'><em>Propriétés</em></h6> <i class="arrow d-none fas fa-arrow-down"></i><i class="arrow d-none fas fa-arrow-up"></i></div></th>
         </tr>
       </thead>
       <tbody class='my-4 border-bottom' data-target='sort-table.body' data-ordering='descending'>
         <% list.farms.sort_by { |farm| -farm.total }.each do |farm| %>
-        <tr class='p-2'>
-            <td class="col-2"><%= link_to "#{farm.name}", farm_path(farm), class: 'text-left text-decoration-none p-2 bg-success text-white rounded'%><%= link_to like_path(Like.where(farm_id: farm.id).where(list_id: list.id)), method: :delete, remote: true do %>
-              <i class="mr-2 fas fa-trash-alt">   </i>
+        <tr>
+          <td class="col-3 py-4">
+            <%= link_to like_path(farm.likes.find_by(list: list)), method: :delete, remote: true do %>
+              <i class="fas fa-minus-circle"></i>
             <% end %>
-            </td>
-          <td class="text-center col-2"><%= farm.total %></td>
-          <td class="text-center col-2"><%= farm.average("Global") %></td>
-          <td class="text-center col-2"><%= farm.average("Social") %></td>
-          <td class="text-center col-2"><%= farm.average("Économique") %></td>
-          <td class="text-center col-2"><%= farm.average("Environnemental") %></td>
+            <%= link_to "#{farm.name}", farm_path(farm), class: 'text-center text-decoration-none p-2 bg-success text-white rounded'%>
+          </td>
+          <td class="text-center col-2 py-4"><strong><h5><%= farm.total %> %</h5></strong></td>
+          <td class="text-center col-1 py-4"><%= farm.average("Global") %> %</td>
+          <td class="text-center col-1 py-4"><%= farm.average("Social") %> %</td>
+          <td class="text-center col-1 py-4"><%= farm.average("Économique") %> %</td>
+          <td class="text-center col-1 py-4"><%= farm.average("Environnemental") %> %</td>
         </tr>
         <% end %>
       </tbody>

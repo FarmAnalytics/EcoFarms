@@ -30,4 +30,16 @@ class ChatroomsController < ApplicationController
 
   end
 
+  def create
+    skip_authorization
+    @chatroom = Chatroom.new
+    @chatroom.user = current_user
+    @chatroom.farm = Farm.find(params[:farm_id])
+    if @chatroom.save!
+      redirect_to chatroom_path(@chatroom)
+    else
+      render 'farms/:id'
+    end
+  end
+
 end

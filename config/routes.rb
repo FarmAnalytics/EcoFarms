@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/farms/:id/count_clap', to: 'farms#count_clap'
 
   resources :farms do
+    resources :chatrooms, only: [:create]
     resources :claps, only: [ :create ]
     resources :scorings, only: [ :create ]
     resources :likes, only: [ :create ]
@@ -26,7 +27,7 @@ Rails.application.routes.draw do
       resources :shops, only: [ :create ]
   end 
 
-  resources :chatrooms, only: [:index, :show, :create, :destroy] do 
+  resources :chatrooms, only: [:index, :show, :destroy] do 
     resources :messages, only: [ :create ]
   end
 

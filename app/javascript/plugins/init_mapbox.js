@@ -12,6 +12,7 @@ const buildMap = () => {
 };
 
 const addMarkersToMap = (map, markers) => {
+  const mapElement = document.getElementById('map');
   markers.forEach((marker) => {
     const element = document.createElement('div');
     element.className = 'marker';
@@ -52,7 +53,6 @@ const addMarkersToMap = (map, markers) => {
 const initMapbox = () => {
   const mapElement = document.getElementById('map');
   if (mapElement) {
-    console.log('hello')
     const map = buildMap();
     const markers = JSON.parse(mapElement.dataset.markers);
     addMarkersToMap(map, markers);

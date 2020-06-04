@@ -12,6 +12,7 @@ const buildMap = () => {
 };
 
 const addMarkersToMap = (map, markers) => {
+  const mapElement = document.getElementById('map');
   markers.forEach((marker) => {
     const element = document.createElement('div');
     element.className = 'marker';
@@ -65,6 +66,7 @@ const initMapbox = () => {
       markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
       map.fitBounds(bounds, { padding: 70, maxZoom: 15 });
     } else {
+      console.log('coucou')
       map.setZoom(8);
       const coordinates = {}
       coordinates.lon = mapElement.dataset.longitude;

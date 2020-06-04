@@ -6,6 +6,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'csv'
 
+# photos = ['https://miro.medium.com/max/11762/1*3LYHYoXdEpguaL3leuA1tA.jpeg', ]
+
 puts "\nCleaning database..."
 
 Farm.destroy_all

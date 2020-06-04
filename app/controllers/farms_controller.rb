@@ -27,7 +27,7 @@ class FarmsController < ApplicationController
     @user = current_user
     @shop = Shop.where(user_id: @user.id).first
     authorize @farm
-
+    @chatroom = Chatroom.new
     @wish_lists = List.where(shop_id: Shop.where(user_id: current_user.id))
     @list = List.new
 

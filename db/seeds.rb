@@ -235,14 +235,14 @@ CSV.foreach('db/reseeds.csv') do |row|
 
   edu_scoring = Scoring.new(
     score: rand(40..100),
-    details: "" )
+    details: "À l'écoute de leurs collaborateurs, attachent une grande importance à les accompagner dans leur carrière et leur parcours de vie." )
   edu_scoring.farm = farm
   edu_scoring.criterion = Criterion.find_by(name: 'Education')
   edu_scoring.save!
 
   eth_scoring = Scoring.new(
     score: rand(40..100),
-    details: "" )
+    details: "L'ancienneté moyenne est de 7 ans et 31% des collaborateurs participent à l'évolution de l'entreprise depuis 10 ans." )
   eth_scoring.farm = farm
   eth_scoring.criterion = Criterion.find_by(name: 'Ethique et développement humain')
   eth_scoring.save!
@@ -293,7 +293,7 @@ CSV.foreach('db/reseeds.csv') do |row|
 
   prodphy_scoring = Scoring.new(
     score: rand(40..100),
-    details: "" )
+    details: "Pesticides naturels et bio" )
   prodphy_scoring.farm = farm
   prodphy_scoring.criterion = Criterion.find_by(name: 'Produits phytosanitaires')
   prodphy_scoring.save!

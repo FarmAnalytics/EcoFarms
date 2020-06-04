@@ -8,6 +8,5 @@ class User < ApplicationRecord
   has_many :shops, dependent: :destroy
   has_many :claps, dependent: :destroy
   has_many :messages
-  has_many :messages, through: :chatrooms
   
 end

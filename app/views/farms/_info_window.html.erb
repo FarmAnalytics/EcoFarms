@@ -8,7 +8,7 @@
     </div>
     <div class="text-center">
       <% if farm.photos.attached? %>
-        <%= cl_image_tag photos.first.key, height: 200, width:300, style: "width: 90%", crop: :fill, class: 'rounded' %>
+        <%= cl_image_tag farm.photos.first.key, height: 200, width:300, style: "width: 90%", crop: :fill, class: 'rounded' %>
       <% else %>
         <%= image_tag "https://images.unsplash.com/photo-1444858291040-58f756a3bdd6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1530&q=80", height: 200, width:300, style: "width: 90%", crop: :fill, class: 'rounded' %>
       <% end %>  

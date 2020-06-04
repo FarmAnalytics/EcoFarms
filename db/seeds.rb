@@ -5,8 +5,35 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'csv'
+require 'open-uri'
 
-# photos = ['https://miro.medium.com/max/11762/1*3LYHYoXdEpguaL3leuA1tA.jpeg', ]
+photos = ['https://miro.medium.com/max/11762/1*3LYHYoXdEpguaL3leuA1tA.jpeg', 
+          'https://content.fortune.com/wp-content/uploads/2019/02/gettyimages-1084681900-e1551108238401.jpg', 
+          'https://www.nationalgeographic.com/content/dam/environment/photos/future_of_food/organic_farming_rough/01_organic_farming_i8860_20181003_11260.adapt.1900.1.jpg', 
+          'https://www.sonomacounty.com/sites/default/files/2019-03/farms_farmers_markets_petaluma_sonoma_county_069_2000_1125.jpg',
+          'https://www.yesmagazine.org/wp-content/uploads/imports/1fe74cb08af74b39b5cada38382e9233.jpg',
+          'https://cam-techsecurity.co.uk/wp-content/uploads/2019/11/farm-security-scaled.jpg',
+          'https://d3d3n1vruxyser.cloudfront.net/media/filer_public_thumbnails/filer_public/a5/6d/a56d9510-07ac-4a09-be3e-3712dc9c818d/cmv-farms-banner-2.png__2340x782_q85_crop_subsampling-2_upscale.png',
+          'https://images.squarespace-cdn.com/content/v1/510c8a59e4b060f86e6e5517/1486506717730-XEQ06KU8CS8IMXFUVE9M/ke17ZwdGBToddI8pDm48kKDKtHioz13A6gTD6cP2SJZ7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0ooWhOa5cxQSJsU3rXf8luX33ZLveKUc0IfIDXzCtWBDa4GLkaq2lSHIaS7p2YxCXg/IMG_0279.JPG?format=2500w',
+          'https://www.openaccessgovernment.org/wp-content/uploads/2019/05/dreamstime_xxl_57105422.jpg',
+          'https://calorganicfarms.com/wp-content/uploads/2017/10/video-poster.jpg',
+          'https://1efnyhsj63r2fo5g01erbmcv-wpengine.netdna-ssl.com/wp-content/uploads/2018/11/rye_field_at_sunset-by-malin_k-368004-unsplash-1400x600.jpg',
+          'https://images.squarespace-cdn.com/content/v1/5320c154e4b011a3c71a0cb8/1440224642504-8I6NP0WXGZYMG7UHM1QS/ke17ZwdGBToddI8pDm48kDHPSfPanjkWqhH6pl6g5ph7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0mwONMR1ELp49Lyc52iWr5dNb1QJw9casjKdtTg1_-y4jz4ptJBmI9gQmbjSQnNGng/IMG_4441_edited.jpeg?format=1500w',
+          'https://imgmedia.lbb.in/media/2019/06/5d009b0fbdd9f348818bfe5a_1560320783272.jpg',
+          'https://images.squarespace-cdn.com/content/v1/5ea742bbf02561696504b781/1589854635920-URBHO1PREZ2T8EBWDW0M/ke17ZwdGBToddI8pDm48kLkXF2pIyv_F2eUT9F60jBl7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0iyqMbMesKd95J-X4EagrgU9L3Sa3U8cogeb0tjXbfawd0urKshkc5MgdBeJmALQKw/Donal+Yasukochi+-+Farm+Pic+5.JPG?format=2500w',
+          'https://huilecbd.be/wp-content/uploads/2019/05/4136/village-farms-international-est-il-un-achat.jpg',
+          'https://cdn.shopify.com/s/files/1/1438/7790/files/Picture1_cce406f0-597e-4a2e-96c6-4bbd11dd9342_2048x.jpg?v=1568852225',
+          'https://cf-images.us-east-1.prod.boltdns.net/v1/static/5615998031001/e5ea96c4-0cda-4141-9bdd-aa4914100a79/e48ae8a8-f14f-41e5-a7a1-67dbad78d982/1280x720/match/image.jpg',
+          'https://www.gohawaii.com/sites/default/files/styles/image_gallery_bg_xl/public/hero-unit-images/11984-Farm%20Tours%20in%20Hawaii.jpg?itok=tz9KIuFo',
+          'https://1gkys61108am2vvslv1ayriu-wpengine.netdna-ssl.com/wp-content/uploads/2019/08/20160603_202013.jpg',
+          'https://static01.nyt.com/images/2019/10/29/world/xxfarms10/xxfarms10-mobileMasterAt3x.jpg',
+          'https://www.mercurynews.com/wp-content/uploads/2020/05/SJM-L-FARMS-0531-01.jpg',
+          'https://media.bizj.us/view/img/11396669/80-acres-farms-interior*1200xx1622-914-0-160.png',
+          'https://d279m997dpfwgl.cloudfront.net/wp/2020/04/DSC_1069-2.jpg',
+          'https://www.ardryfarms.com/uploads/1/7/6/5/17658569/spring40_1_orig.jpg',
+          'https://www.hughlowefarms.com/imager/uploads/48/Hugh-Lowe-Farms-Hero_b29007faa48e3f4a491bae738aa9e177.jpg',
+          'https://www.pinata.com.au/media/cache/1220x670p/0/1/351/391946/media-download-1-strawberry.jpg'
+        ]
 
 puts "\nCleaning database..."
 
@@ -111,8 +138,8 @@ end
 
 # csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
 # filepath    = 'seeds.csv'
-CSV.foreach('db/seeds.csv') do |row|
-
+CSV.foreach('db/reseeds.csv') do |row|
+  
   user = User.new(
     email: row[11], 
     password: random_password(length=10) )
@@ -121,6 +148,7 @@ CSV.foreach('db/seeds.csv') do |row|
   user.phone_number = '06 22 55 40 68'
   user.save!
 
+  
   farm = Farm.new(
     name: row[0],
     address: row[1],
@@ -131,7 +159,11 @@ CSV.foreach('db/seeds.csv') do |row|
     cultures: row[13],
     surface: row[14].to_i,
     employees: row[15].to_i )
-  farm.user = user
+    farm.user = user
+    puts 'Adding photos to farms'
+    photos.sample(rand(1..3)).each do |photo|
+      farm.photos.attach(io: URI.open(photo), filename: 'photo.jpg')
+    end
   farm.save!
 
   # ------------------- GLOBAL SCORING -------------------
@@ -188,42 +220,42 @@ CSV.foreach('db/seeds.csv') do |row|
   col_scoring.save!
 
   dec_scoring = Scoring.new(
-    score: rand(20..90),
+    score: rand(40..100),
     details: "" )
   dec_scoring.farm = farm
   dec_scoring.criterion = Criterion.find_by(name: 'Déchets')
   dec_scoring.save!
 
   dev_scoring = Scoring.new(
-    score: rand(20..90),
+    score: rand(40..100),
     details: "" )
   dev_scoring.farm = farm
   dev_scoring.criterion = Criterion.find_by(name: 'Développement local')
   dev_scoring.save!
 
   edu_scoring = Scoring.new(
-    score: rand(20..90),
+    score: rand(40..100),
     details: "" )
   edu_scoring.farm = farm
   edu_scoring.criterion = Criterion.find_by(name: 'Education')
   edu_scoring.save!
 
   eth_scoring = Scoring.new(
-    score: rand(20..90),
+    score: rand(40..100),
     details: "" )
   eth_scoring.farm = farm
   eth_scoring.criterion = Criterion.find_by(name: 'Ethique et développement humain')
   eth_scoring.save!
 
   hs_scoring = Scoring.new(
-    score: rand(20..90),
+    score: rand(40..100),
     details: "" )
   hs_scoring.farm = farm
   hs_scoring.criterion = Criterion.find_by(name: 'Hygiène et sécurité')
   hs_scoring.save!
 
   trs_scoring = Scoring.new(
-    score: rand(20..90),
+    score: rand(40..100),
     details: "" )
   trs_scoring.farm = farm
   trs_scoring.criterion = Criterion.find_by(name: 'Transparence')
@@ -239,49 +271,49 @@ CSV.foreach('db/seeds.csv') do |row|
   biod_scoring.save!
  
   cult_scoring = Scoring.new(
-    score: rand(20..90),
+    score: rand(40..100),
     details: "" )
   cult_scoring.farm = farm
   cult_scoring.criterion = Criterion.find_by(name: 'Culture')
   cult_scoring.save!
 
   elev_scoring = Scoring.new(
-    score: rand(20..90),
+    score: rand(40..100),
     details: "" )
   elev_scoring.farm = farm
   elev_scoring.criterion = Criterion.find_by(name: 'Elevage')
   elev_scoring.save!
 
   fert_scoring = Scoring.new(
-    score: rand(20..90),
+    score: rand(40..100),
     details: "" )
   fert_scoring.farm = farm
   fert_scoring.criterion = Criterion.find_by(name: 'Fertilisation')
   fert_scoring.save!
 
   prodphy_scoring = Scoring.new(
-    score: rand(20..90),
+    score: rand(40..100),
     details: "" )
   prodphy_scoring.farm = farm
   prodphy_scoring.criterion = Criterion.find_by(name: 'Produits phytosanitaires')
   prodphy_scoring.save!
 
   ressair_scoring = Scoring.new(
-    score: rand(20..90),
+    score: rand(40..100),
     details: "" )
   ressair_scoring.farm = farm
   ressair_scoring.criterion = Criterion.find_by(name: 'Ressources - Air')
   ressair_scoring.save!
   
   resseau_scoring = Scoring.new(
-    score: rand(20..90),
+    score: rand(40..100),
     details: "" )
   resseau_scoring.farm = farm
   resseau_scoring.criterion = Criterion.find_by(name: 'Ressources - Eau')
   resseau_scoring.save!
   
   ressene_scoring = Scoring.new(
-    score: rand(20..90),
+    score: rand(40..100),
     details: "" )
   ressene_scoring.farm = farm
   ressene_scoring.criterion = Criterion.find_by(name: 'Ressources - Energie')
@@ -297,7 +329,7 @@ CSV.foreach('db/seeds.csv') do |row|
   # ------------------- ECONOMIC SCORING -------------------
 
   effglo_scoring = Scoring.new(
-    score: rand(20..90),
+    score: rand(40..100),
     details: "" )
   effglo_scoring.farm = farm
   effglo_scoring.criterion = Criterion.find_by(name: 'Efficience globale')
@@ -318,7 +350,7 @@ CSV.foreach('db/seeds.csv') do |row|
   pere_scoring.save!
   
   viaeco_scoring = Scoring.new(
-    score: rand(20..90),
+    score: rand(40..100),
     details: "" )
   viaeco_scoring.farm = farm
   viaeco_scoring.criterion = Criterion.find_by(name: 'Viabilité économique')

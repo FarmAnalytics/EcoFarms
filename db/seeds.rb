@@ -244,7 +244,7 @@ CSV.foreach('db/reseeds.csv') do |row|
     score: rand(40..100),
     details: "L'ancienneté moyenne est de 7 ans et 31% des collaborateurs participent à l'évolution de l'entreprise depuis 10 ans." )
   eth_scoring.farm = farm
-  eth_scoring.criterion = Criterion.find_by(name: 'Ethique et développement humain')
+  eth_scoring.criterion = Criterion.find_by(name: "Ethique et développement humain")
   eth_scoring.save!
 
   hs_scoring = Scoring.new(

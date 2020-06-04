@@ -6,7 +6,7 @@
     </div>
   <% end %>
   <% @chatrooms.each do |chatroom| %>
-    <div class="d-flex bg-white border rounded mb-3">
+    <div class="d-flex bg-white border rounded mb-3 text-right">
       <div class="col-10 py-3" >
         <%= link_to chatroom_path(chatroom) do %>
           <h5 class='text-primary m-0 btn'><%= "Chat avec " + chatroom.farm.name %></h5>

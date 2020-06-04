@@ -366,6 +366,24 @@ superuser.last_name = 'Mauriac'
 superuser.phone_number = '02 38 46 94 45'
 superuser.save!
 
+superuser2 = User.new(
+  email: "bertrand@biocoop.com", 
+  password: "123456",
+  admin: true )
+superuser2.first_name = 'Bertrand'
+superuser2.last_name = 'Vazy'
+superuser2.phone_number = '02 38 46 94 45'
+superuser2.save!
+
+FermeGally = Farm.find(14)
+FermeGally.user = superuser2
+FermeGally.save!
+
+ChatGally = Chatroom.new
+ChatGally.farm = FermeGally
+ChatGally.user = superuser
+ChatGally.save!
+
 puts "Users and Farms have been created"
 
 

@@ -19,4 +19,20 @@
       </div>
     </div>
   <% end %>
+  <% if !@chatrooms_farm.nil? %>
+    <% @chatrooms_farm.each do |chatroom| %>
+      <div class="d-flex bg-white border rounded mb-3">
+        <div class="col-10 py-3" >
+          <%= link_to chatroom_path(chatroom) do %>
+            <h5 class='text-primary m-0 btn'><%= "Chat avec " + chatroom.farm.name %></h5>
+          <% end %>
+        </div>
+        <div class="col-2 p-0">
+          <%= link_to chatroom_path(chatroom), method: :delete, remote: true do %>
+            <span class="btn float-right py-0 px-2">×</span>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
 </div>

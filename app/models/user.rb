@@ -7,4 +7,6 @@ class User < ApplicationRecord
   has_one_attached :photo
   has_many :shops, dependent: :destroy
   has_many :claps, dependent: :destroy
+  has_many :messages
+  
 end

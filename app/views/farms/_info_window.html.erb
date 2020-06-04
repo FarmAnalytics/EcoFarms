@@ -1,18 +1,23 @@
 <div class="farm-card text-white text-center">
-    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-      <span class='text-white mr-1'>&times;</span>
-    </button>
-    <div class='p-3'>
-      <h1><%= farm.name %></h1>
-      <h6><%= farm.address %></h6>
-    </div>
-    <div class="text-center py-3">
-      <% if farm.photos.attached? %>
-        <%= cl_image_tag farm.photos.first.key, height: 200, width:300, style: "width: 90%", crop: :fill, class: 'rounded' %>
-      <% else %>
-        <%= image_tag "https://images.unsplash.com/photo-1444858291040-58f756a3bdd6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1530&q=80", height: 200, width:300, style: "width: 90%", crop: :fill, class: 'rounded' %>
-      <% end %>  
-    </div>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span class='text-white mr-1'>&times;</span>
+  </button>
+  <div class='text-left p-3'>
+    <h3><%= farm.name %></h3>
+    <h6><%= farm.address %></h6>
+  </div>
+  <div class="text-center py-3">
+    <% if farm.photos.attached? %>
+      <%= cl_image_tag farm.photos.first.key, height: 200, width:300, style: "width: 90%", crop: :fill, class: 'rounded' %>
+    <% else %>
+      <%= image_tag "https://images.unsplash.com/photo-1444858291040-58f756a3bdd6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1530&q=80", height: 200, width:300, style: "width: 90%", crop: :fill, class: 'rounded' %>
+    <% end %>  
+  </div>
+  <div class="text-center px-3 pt-3 pb-0 d-flex">
+    <% farm.tags.each do |tag| %>
+      <h6 class=' border p-2 mr-2 rounded'> <%=tag %></h6>
+    <% end %>
+  </div>
   <div class="farm-infos text-white text-center">
     <div class="sc-gauge-card text-center">
       <div class="sc-background-card mb-3">
@@ -21,9 +26,9 @@
         <h2 class="sc-value-card"><%= farm.total %> %</h2>
       </div>
     </div>
-    <h5>Indice de performance</h5>
-    <div class='text-center py-3' id="button-card">
-      <%= link_to "Voir cette ferme", farm_path(farm), class: "btn btn-success text-white", data: { turbolinks: 'false' } %>
-    </div>
+  <h6>Performances globales</h6>
+  <div class='text-center py-3' id="button-card">
+    <%= link_to "Voir cette ferme", farm_path(farm), class: "btn btn-success text-white", data: { turbolinks: 'false' } %>
   </div>
+</div>
 

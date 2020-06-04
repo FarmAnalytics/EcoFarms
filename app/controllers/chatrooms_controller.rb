@@ -12,8 +12,6 @@ class ChatroomsController < ApplicationController
     @chatrooms = policy_scope(Chatroom).where(user_id: @user.id)
     @chatroom_first = Chatroom.find(params[:id])
     @message = Message.new
-    # @messages = Message.where(chatroom_id: @chatroom.id)
-    # raise
   end
 
 end

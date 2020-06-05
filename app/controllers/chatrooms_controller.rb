@@ -42,4 +42,10 @@ class ChatroomsController < ApplicationController
     end
   end
 
+  def destroy
+    skip_authorization
+    @chatroom = Chatroom.find(params[:id])
+    @chatroom.destroy
+    redirect_to chatrooms_path
+  end
 end

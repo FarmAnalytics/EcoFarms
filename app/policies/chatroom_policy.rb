@@ -13,4 +13,7 @@ class ChatroomPolicy < ApplicationPolicy
     true
   end
 
+  def destroy
+    true
+  end
 end

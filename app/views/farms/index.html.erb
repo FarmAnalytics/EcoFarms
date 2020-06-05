@@ -61,4 +61,19 @@
     data-latitude="<%= Geocoder.search(params[:query]).first.latitude if (!params[:query].nil? && params[:query]!="") %>"
     data-longitude="<%= Geocoder.search(params[:query]).first.longitude if (!params[:query].nil? && params[:query]!="") %>"></div>
 
+<div class="bg-info px-2 py-5">
+  <div class="container py-5">
+    <div class="d-flex">
+      <div class='col-6 pr-3'>
+        <%= image_tag "Hero-removebg-preview.png", style: "width: 100%", class: 'illustration' %>
+      </div>
+      <div class='col-6 pl-5 justify-content-end'>
+        <h1 class='text-primary'><strong>Nous évaluons,</strong></h1>
+        <h1 class='text-primary'><strong>Vous pilotez!</strong></h1>
+        <h5 class='text-warning mt-4'>Collaborer avec des agriculteurs engagés n'a jamais été aussi facile pour leurs partenaires.</h5>
+      </div>
+    </div>
+  </div>
+</div>
+
 

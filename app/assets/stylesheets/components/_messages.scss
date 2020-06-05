@@ -1,0 +1,22 @@
+.message-menu {
+  min-height: calc(100vh - 70px - 70px - 200px);
+}
+
+.message-container {
+  // width: max-content;
+  margin-bottom: 1.5rem;
+}
+
+.message-bull {
+  margin-top: auto;
+  margin-bottom: auto;
+  padding: 1rem;
+  border-radius: 25px;
+  border: 1px solid #dee2e6;
+  background-color: white;
+}
+
+.author{
+  font-size: 10px;
+  padding-top: 10px;
+}

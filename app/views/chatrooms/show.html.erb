@@ -27,6 +27,7 @@
     <%= simple_form_for [ @chatroom_first, @message ], html: {data: {controller: 'send-message', target: 'send-message.form', action: 'ajax:complete->send-message#clear'}}, remote: true do |f| %>
       <%= f.input :content, label: false, placeholder: "Message", input_html: {data: {target: 'send-message.input'}} %>
       <%= f.submit "Envoyer", data: {action: 'click->send-message#submit'}, class: "btn btn-success text-white" %>
+      <%= link_to "Retourner sur la ferme", farm_path(@chatroom_first.farm), class: "btn btn-success text-white", data: { turbolinks: 'false' } %>
     <% end %>
   </div>
 </div>

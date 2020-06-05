@@ -379,10 +379,10 @@ FermeGally = Farm.find(14)
 FermeGally.user = superuser2
 FermeGally.save!
 
-ChatGally = Chatroom.new
-ChatGally.farm = FermeGally
-ChatGally.user = superuser
-ChatGally.save!
+# ChatGally = Chatroom.new
+# ChatGally.farm = FermeGally
+# ChatGally.user = superuser
+# ChatGally.save!
 
 puts "Users and Farms have been created"
 
@@ -394,12 +394,20 @@ User.all.each do |user|
   magazin.address = "#{user.id} rue du General de Gaulle, 44300 Nantes"
   magazin.user = user
   magazin.save!
-  3.times do
-    maListe = List.new
-    maListe.name = "Mes meilleurs fermiers #{(1..50).to_a.sample}"
-    maListe.shop = magazin
-    maListe.save!
-  end
+  
+  maListe = List.new
+  maListe.name = "Mes producteurs de légumes"
+  maListe.shop = magazin
+  maListe.save!
+  maListe2 = List.new
+  maListe2.name = "Mes fournisseurs de viande"
+  maListe2.shop = magazin
+  maListe2.save!
+  maListe3 = List.new
+  maListe3.name = "Liste producteurs potentiels"
+  maListe3.shop = magazin
+  maListe3.save!
+  
 end
 
 puts "Lists and Shops created"

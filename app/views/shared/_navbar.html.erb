@@ -1,7 +1,9 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon bg-primary">
-
   <%= link_to root_path, class: "navbar-brand bg-transparent", data: { turbolinks: 'false' } do %>
-    <%= image_tag "ecofarms_logo.png" %>
+    <div class='d-flex align-items-center'>
+      <%= image_tag "ecofarms_logo.png" %>
+      <h4 class='ml-2 mb-0'><strong><span class='text-white'>Eco</span><span class='text-success'>Farm</span></strong></h4>
+    </div>
   <% end %>
 
   <%# <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -18,10 +20,10 @@
             <%= image_tag "https://www.dts.edu/wp-content/uploads/sites/6/2018/04/Blank-Profile-Picture.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% end %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Mon Profil", profile_user_path, class: "dropdown-item text-body" %>
-            <%= link_to "Mes Listes", user_lists_path, class: "dropdown-item text-body" %>
-            <%= link_to "Mes Messages", chatrooms_path, class: "dropdown-item text-body" %>
-            <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "dropdown-item text-body" %>
+            <%= link_to "Mon Profil", profile_user_path, class: "dropdown-item text-primary" %>
+            <%= link_to "Mes Listes", user_lists_path, class: "dropdown-item text-primary" %>
+            <%= link_to "Mes Messages", chatrooms_path, class: "dropdown-item text-primary" %>
+            <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "dropdown-item text-primary" %>
           </div>
         </li>
       <% else %>

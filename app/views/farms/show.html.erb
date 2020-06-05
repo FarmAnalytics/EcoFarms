@@ -3,14 +3,18 @@
 <%# <% content_for :meta_image, cl_image_path(@farm.photos.first.path) %>
 
 <div class="bg-primary text-white">
-  <div class="pt-4 container">
+  <div class="pt-5 pb-3 container">
     <div class="row no-gutters flex-md-row">
       <div class="col-8 pr-5">
         <div class="d-flex">
           <h2><%= @farm.name %></h2>
           <a href="https://<%= @farm.url %>" target="_blank" class="text-white btn"><i class="fas fa-link"></i></a>
         </div>
-        <p class="lead my-3"><%= @farm.sector %></p>
+        <div class="m-0 d-flex">
+          <% @farm.tags.each do |tag| %>
+            <p class='mr-2 text-white border rounded col-2 py-2 text-center'> <%=tag %></p>
+          <% end %>
+        </div>
         <div class="card-text">
           <p class="m-0"><%= @farm.description %></p>
         </div>
@@ -105,7 +109,7 @@
             </div>
             <div class="text-muted py-2">
             <i class="fas fa-tractor"></i>    
-            <p class="m-0 d-flex justify-content-center">Autre</p>
+            <p class="m-0 d-flex justify-content-center">Propriétés</p>
             </div>
           </div>
         </a>
@@ -128,4 +132,8 @@
         <%= render 'rating', zone: "Global" %>
     </div>
   </div>
+</div>
+
+<div class='text-center mb-5'>
+  <%= link_to 'Retour aux fermes', farms_path, class: 'btn btn-success text-white m-5' %>
 </div>

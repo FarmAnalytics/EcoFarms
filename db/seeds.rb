@@ -404,7 +404,7 @@ User.all.each do |user|
   maListe2.shop = magazin
   maListe2.save!
   maListe3 = List.new
-  maListe3.name = "Liste producteurs potentiel"
+  maListe3.name = "Liste producteurs potentiels"
   maListe3.shop = magazin
   maListe3.save!
   

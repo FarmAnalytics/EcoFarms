@@ -24,14 +24,14 @@ class FarmsController < ApplicationController
 
   def show
     @farm = Farm.find(params[:id])
-    @user = current_user
-    @shop = Shop.where(user_id: @user.id).first
     authorize @farm
     @chatroom = Chatroom.new
-    @wish_lists = List.where(shop_id: Shop.where(user_id: current_user.id))
     @list = List.new
-
     @clap = Clap.new
+    if current_user != nil
+      @shop = Shop.where(user_id: current_user.id).first
+      @wish_lists = List.where(shop_id: Shop.where(user_id: current_user.id))
+    end
   end
 
   def count_clap

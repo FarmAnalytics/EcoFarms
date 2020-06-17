@@ -19,7 +19,7 @@
           <p class="m-0"><%= @farm.description %></p>
         </div>
         <div class="d-flex mt-4">
-          <% if @user != nil %>
+          <% if current_user != nil %>
           <%= render 'claps' %>
             <%= render 'add_to_list' %>
             <%= simple_form_for [@farm, @chatroom]  do |f|  %>

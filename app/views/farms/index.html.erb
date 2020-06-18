@@ -1,5 +1,5 @@
-<div class="bg-primary px-2 pb-5 pt-3">
-  <div class="container ">
+<div class="bg-primary px-2 pb-5 pt-5">
+  <div class="container">
     <div class="banner-home row justify-content-between">
         <div class="search col-6">
           <h2 class='text-white my-5'>Trouvez un producteur en accord avec vos valeurs</h2>
@@ -12,9 +12,9 @@
             <h5 class='text-white mt-4 mb-3'>Quel type de produit cherchez-vous ?</h5>
 
 
-              <div class="row m-auto mb-3 justify-content-between btn-group-toggle" data-toggle="buttons">
+              <div class="row m-auto mb-3 justify-content-start btn-group-toggle align-items-center" data-toggle="buttons">
                 <% @tags.each do |tag| %>
-                  <label class="btn text-white border rounded col-2 py-2 text-center" for="<%=tag%>">
+                  <label class="btn text-white border rounded py-2 text-center mb-2 mr-2" for="<%=tag%>">
                     <input type="checkbox" name="tag[]" data-toggle="button" id="<%=tag%>" value="<%=tag%>">
                     <p class='m-0'><%= tag %></p>
                    </label>

@@ -3,7 +3,7 @@ class FarmsController < ApplicationController
 
   def index
 
-    @tags = ['Légumes', 'Fruits', 'Viande', 'Crèmerie', 'Vin']
+    @tags = ['Elevage', 'Grandes Cultures', 'Maraîchage', 'Viticulture', 'Arboriculture']
     @farms = policy_scope(Farm).geocoded
     
     if params[:tag].present?

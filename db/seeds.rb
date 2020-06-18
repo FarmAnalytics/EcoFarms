@@ -441,7 +441,7 @@ puts "#{Clap.count} Claps created"
 
 puts "\nCreating Tags on farms ..."
 
-tab_tag = ['Légumes', 'Fruits', 'Viande', 'Crèmerie', 'Vin']
+tab_tag = ['Elevage', 'Grandes Cultures', 'Maraîchage', 'Viticulture', 'Arboriculture']
 
 Farm.all.each do |f|
   (1..3).to_a.sample.times do 
